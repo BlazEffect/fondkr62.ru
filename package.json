@@ -6,8 +6,17 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "axios": "^1.6.1",
+        "autoprefixer": "^10.4.16",
         "laravel-vite-plugin": "^1.0.0",
+        "postcss": "^8.4.33",
+        "sass": "^1.69.7",
         "vite": "^5.0.0"
-    }
+    },
+    "browserslist": [
+        "last 15 versions",
+        "> 1%",
+        "ie 9",
+        "ie 10",
+        "ie 11"
+    ]
 }
