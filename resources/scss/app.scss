@@ -5,9 +5,10 @@
 @import "fonts/fonts";
 
 $mainColor: #000;
+$lightBlueColor: #3D9DF7;
 
 $fontFamily: "Inter-Regular";
-$fontSize: rem(16); // размер шрифта по умолчанию
+$fontSize: rem(20); // размер шрифта по умолчанию
 
 $minWidth: 320;
 // Ширина полотна (макета)
@@ -41,3 +42,5 @@ $mobileSmall: em(479.98); // Телефоны S
         }
     }
 }
+
+@import "blocks/header";
