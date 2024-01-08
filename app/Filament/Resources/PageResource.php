@@ -34,7 +34,7 @@ class PageResource extends Resource
                                     ->required(),
                                 Forms\Components\TextInput::make('url')
                                     ->label('Адрес')
-                                    ->prefix(env('APP_URL'))
+                                    ->prefix(env('APP_URL') . '/')
                                     ->required(),
                             ]),
 
