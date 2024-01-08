@@ -6,16 +6,16 @@
 
 $mainColor: #000;
 
-$fontFamily: 'sans-serif';
+$fontFamily: "Inter-Regular";
 $fontSize: rem(16); // размер шрифта по умолчанию
 
 $minWidth: 320;
 // Ширина полотна (макета)
 $maxWidth: 1920;
 // Ширина ограничивающего контейнера (0 = нет ограничения)
-$maxWidthContainer: 1600;
+$maxWidthContainer: 1620;
 // Общий отступ у контейнера
-$containerPadding: 270;
+$containerPadding: 300;
 
 // Ширина страбатывания первого брейкпоинта
 $containerWidth: $maxWidthContainer + $containerPadding;
