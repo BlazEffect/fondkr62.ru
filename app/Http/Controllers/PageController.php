@@ -8,8 +8,8 @@ class PageController extends Controller
 {
     public function index(Page $page)
     {
-        return view('pages.user-page', [
-            'content' => $page->content
-        ]);
+        $this->vars['content'] = $page->content;
+
+        return view('pages.user-page', $this->vars);
     }
 }
