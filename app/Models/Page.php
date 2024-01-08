@@ -19,4 +19,9 @@ class Page extends Model
     protected $casts = [
         'active' => 'boolean'
     ];
+
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where($field, $value)->where('active', true)->firstOrFail();
+    }
 }
