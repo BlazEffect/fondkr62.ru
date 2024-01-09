@@ -4,6 +4,10 @@
     @include('layout.header')
 @endsection
 
+@section('aside')
+    @include('layout.aside')
+@endsection
+
 @section('main')
     {!! $content !!}
 @endsection
