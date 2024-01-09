@@ -14,7 +14,13 @@
     <body>
         @yield('header')
 
-        @yield('main')
+        <div class="site-content">
+            <div class="site__container">
+                @yield('aside')
+
+                @yield('main')
+            </div>
+        </div>
 
         @yield('footer')
 

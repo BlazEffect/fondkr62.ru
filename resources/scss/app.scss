@@ -43,8 +43,11 @@ $mobileSmall: em(479.98); // Телефоны S
     }
 }
 
-.main {
+.site-content {
+    height: 100%;
     background: #F1F3F5;
 }
 
 @import "blocks/header";
+
+@import "blocks/aside";
