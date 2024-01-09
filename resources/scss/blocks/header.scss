@@ -106,7 +106,8 @@
                 top: 100%;
                 left: 0;
                 width: max-content;
-                box-shadow: 0px 4px 4px 0px #00000040;
+                box-shadow: 0 4px 4px 0 #00000040;
+                background-color: #fff;
             }
 
             // .header-bottom__menu-subitem
@@ -166,7 +167,8 @@
                 top:0;
                 left:100%;
                 width: max-content;
-                box-shadow: 0px 4px 4px 0px #00000040;
+                box-shadow: 0 4px 4px 0 #00000040;
+                background-color: #fff;
             }
 
             // .header-bottom__menu-subsubitem
