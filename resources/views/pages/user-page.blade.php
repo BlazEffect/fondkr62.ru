@@ -9,7 +9,9 @@
 @endsection
 
 @section('main')
-    {!! $content !!}
+    <main class="main">
+        {!! $content !!}
+    </main>
 @endsection
 
 @section('footer')
