@@ -1,9 +1,31 @@
 .main {
+    // .main-custom-page
     &-custom-page {
+        // .main-custom-page__heading
         &__heading {
             margin: 30px 0;
             font-family: "Inter-SemiBold";
-            font-size: 31px;
+            font-size: 32px;
+        }
+
+        // .main-custom-page__content
+        &__content {
+            a:link,
+            a:visited {
+                text-decoration: underline;
+            }
+            ul li {
+                list-style: initial;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: "Inter-SemiBold";
+                font-size: 32px;
+            }
         }
     }
 }
