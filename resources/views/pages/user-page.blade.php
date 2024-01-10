@@ -4,6 +4,10 @@
     @include('layout.header')
 @endsection
 
+@section('styles')
+    @vite('resources/scss/pages/user-page.scss')
+@endsection
+
 @section('breadcrumbs')
     {{ Breadcrumbs::render('custom_page', $page) }}
 @endsection
@@ -14,7 +18,11 @@
 
 @section('main')
     <main class="main">
-        {!! $page->content !!}
+        <h2 class="main-custom-page__heading">{{ $page->name }}</h2>
+
+        <div class="main-custom-page__content">
+            {!! $page->content !!}
+        </div>
     </main>
 @endsection
 
