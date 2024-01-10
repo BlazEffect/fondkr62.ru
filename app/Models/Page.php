@@ -14,6 +14,7 @@ class Page extends Model
         'url',
         'active',
         'content',
+        'section_name'
     ];
 
     protected $casts = [

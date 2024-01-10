@@ -36,6 +36,8 @@ class PageResource extends Resource
                                     ->label('Адрес')
                                     ->prefix(env('APP_URL') . '/')
                                     ->required(),
+                                Forms\Components\TextInput::make('section_name')
+                                    ->label('Название раздела'),
                             ]),
 
                         Forms\Components\Section::make()
