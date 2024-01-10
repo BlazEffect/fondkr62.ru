@@ -18,39 +18,39 @@ class Controller extends BaseController
         $this->vars['menu'] = [
             [
                 'title' => 'О фонде',
-                'link' => '',
+                'link' => '/about/information',
                 'children' => [
                     [
                         'title' => 'Общая информация',
-                        'link' => '',
+                        'link' => '/about/information',
                     ],
                     [
                         'title' => 'Термины и определения',
-                        'link' => '',
+                        'link' => '/about/therm',
                     ],
                     [
                         'title' => 'Реквизиты фонда',
-                        'link' => '',
+                        'link' => '/about/details',
                     ],
                     [
                         'title' => 'Сведения о руководстве',
-                        'link' => '',
+                        'link' => '/about/topmanagement',
                     ],
                     [
                         'title' => 'Учредительные документы',
-                        'link' => '',
+                        'link' => '/about/constituent',
                     ],
                     [
                         'title' => 'Документы фонда',
-                        'link' => '',
+                        'link' => '/about/docsfond',
                     ],
                     [
                         'title' => 'Финансовая устойчивость',
-                        'link' => '',
+                        'link' => '/about/steadiness',
                     ],
                     [
                         'title' => 'Контролирующие органы',
-                        'link' => '',
+                        'link' => '/about/supervisors',
                     ]
                 ]
             ],
