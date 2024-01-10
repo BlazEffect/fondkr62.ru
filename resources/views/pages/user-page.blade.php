@@ -4,13 +4,17 @@
     @include('layout.header')
 @endsection
 
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('custom_page', $page) }}
+@endsection
+
 @section('aside')
     @include('layout.aside')
 @endsection
 
 @section('main')
     <main class="main">
-        {!! $content !!}
+        {!! $page->content !!}
     </main>
 @endsection
 

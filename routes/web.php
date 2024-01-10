@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('{page:url}', [PageController::class, 'index'])
     ->missing(function () {
         abort(404);
-    });
+    })
+    ->name('custom_page');

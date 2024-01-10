@@ -16,6 +16,8 @@
 
         <div class="site-content">
             <div class="site__container">
+                @yield('breadcrumbs')
+
                 @yield('aside')
 
                 @yield('main')
