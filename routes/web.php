@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('{page:url}', [PageController::class, 'index'])
+    ->where('page', '.*')
     ->missing(function () {
         abort(404);
     })
