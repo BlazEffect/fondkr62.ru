@@ -26,6 +26,15 @@
                 font-family: "Inter-SemiBold";
                 font-size: 32px;
             }
+            table, colgroup, thead, tbody, tfoot, tr, th, td {
+                border: 1px solid black;
+                text-align: center;
+            }
+
+            th {
+                background-color: #fff;
+                font-family: "Inter-SemiBold";
+            }
         }
     }
 }
