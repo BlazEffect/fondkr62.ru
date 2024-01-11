@@ -9,7 +9,7 @@
 @endsection
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('custom_page', $page) }}
+    {{ Breadcrumbs::render('custom-page', $page) }}
 @endsection
 
 @section('aside')

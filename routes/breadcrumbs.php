@@ -8,7 +8,7 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
     $trail->push('Главная', route('home'));
 });
 
-Breadcrumbs::for('custom_page', function (BreadcrumbTrail $trail, Page $page) {
+Breadcrumbs::for('custom-page', function (BreadcrumbTrail $trail, Page $page) {
     $trail->parent('home');
 
     // Temporary solution

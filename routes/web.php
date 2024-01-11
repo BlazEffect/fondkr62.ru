@@ -22,4 +22,4 @@ Route::get('{page:url}', [PageController::class, 'index'])
     ->missing(function () {
         abort(404);
     })
-    ->name('custom_page');
+    ->name('custom-page');
