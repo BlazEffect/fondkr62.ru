@@ -18,9 +18,9 @@
 
 @section('main')
     <main class="main">
-        <h2 class="main-custom-page__heading">{{ $page->name }}</h2>
+        <h2 class="main__page-heading">{{ $page->name }}</h2>
 
-        <div class="main-custom-page__content">
+        <div class="main__page-wrapper">
             {!! $page->content !!}
         </div>
     </main>

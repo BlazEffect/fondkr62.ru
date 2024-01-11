@@ -52,46 +52,64 @@ $mobileSmall: em(479.98); // Телефоны S
     }
 }
 
-.main-files {
-    // .main-files__list
-    &__list {
-        display: flex;
-        flex-direction: column;
-        border-radius: 8px;
-    }
-
-    // .main-files__item
-    &__item {
-        background: #fff;
-        padding: 39px 39px 39px 88px;
-
-        // .main-files__item:not(:last-child)
-        &:not(:last-child) {
-            border-bottom: 1px solid #00000033;
-        }
-
-        // .main-files__item:first-child
-        &:first-child {
-            border-radius: 8px 8px 0 0;
-        }
-
-        // .main-files__item:last-child
-        &:last-child {
-            border-radius: 0 0 8px 8px;
-        }
-
-        // .main-files__item:hover
-        &:hover {
-            background: #0000001A;
+.main {
+    // .main-page
+    &__page {
+        // .main__page-heading
+        &-heading {
+            margin: 30px 0;
+            font-family: "Inter-SemiBold";
+            font-size: 32px;
         }
     }
 
-    // .main-files__link
-    &__link {
-        font-family: "Inter-SemiBold";
-        color: #000;
-        font-size: 20px;
-        text-decoration: none !important;
+    // .main-files
+    &-files {
+        // .main-files__list
+        &__list {
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+        }
+
+        // .main-files__item
+        &__item {
+            background: #fff;
+            padding: 39px 39px 39px 88px;
+
+            // .main-files__item:not(:last-child)
+            &:not(:last-child) {
+                border-bottom: 1px solid #00000033;
+            }
+
+            // .main-files__item:first-child
+            &:first-child {
+                border-radius: 8px 8px 0 0;
+            }
+
+            // .main-files__item:last-child
+            &:last-child {
+                border-radius: 0 0 8px 8px;
+            }
+
+            // .main-files__item:only-child
+            &:only-child {
+                border-radius: 8px;
+            }
+
+            // .main-files__item:hover
+            &:hover {
+                background: #0000001A;
+            }
+        }
+
+        // .main-files__link
+        &__link {
+            font-family: "Inter-SemiBold";
+            color: #000;
+            font-size: 20px;
+            text-decoration: none !important;
+        }
     }
 }
 

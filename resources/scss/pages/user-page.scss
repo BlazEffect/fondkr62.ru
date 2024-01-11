@@ -1,15 +1,8 @@
 .main {
-    // .main-custom-page
-    &-custom-page {
-        // .main-custom-page__heading
-        &__heading {
-            margin: 30px 0;
-            font-family: "Inter-SemiBold";
-            font-size: 32px;
-        }
-
-        // .main-custom-page__content
-        &__content {
+    // .main__page
+    &__page {
+        // .main__page-wrapper
+        &-wrapper {
             a:link,
             a:visited {
                 text-decoration: underline;
