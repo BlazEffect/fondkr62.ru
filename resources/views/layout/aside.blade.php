@@ -49,17 +49,17 @@
                 </a>
             </li>
             <li class="aside-menu--second__item">
-                <a href="" class="aside-menu--second__link">
+                <a href="https://sberbank.com/sms/ppinv?reqId=495646715679" class="aside-menu--second__link">
                     Сбербанк онлайн
                 </a>
             </li>
             <li class="aside-menu--second__item">
-                <a href="" class="aside-menu--second__link">
+                <a href="https://mpkvc.ru/" class="aside-menu--second__link">
                     МП “КВЦ”
                 </a>
             </li>
             <li class="aside-menu--second__item">
-                <a href="" class="aside-menu--second__link">
+                <a href="https://redirect.appmetrica.yandex.com/serve/1180700130840480299" class="aside-menu--second__link">
                     Абонемент+
                 </a>
             </li>
