@@ -21,6 +21,8 @@
                 @yield('aside')
 
                 @yield('main')
+
+                @include('layout.blocks.third-party-sites')
             </div>
 
             <div class="site-content__clear"></div>
