@@ -18,3 +18,5 @@ yarn-error.log
 /.idea
 /.vscode
 /public/adminer.php
+/public/annual-reporting
+/public/upload
