@@ -79,6 +79,7 @@ return [
 
     'links' => [
         public_path('annual-reporting') => storage_path('app/public/annual-reporting'),
+        public_path('upload') => storage_path('app/public/upload'),
     ],
 
 ];

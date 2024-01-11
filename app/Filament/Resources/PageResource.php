@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
 use Filament\Forms;
@@ -9,7 +10,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 
 class PageResource extends Resource
 {
@@ -46,8 +46,8 @@ class PageResource extends Resource
                                     ->label('Содержание')
                                     ->fileAttachmentsDisk('public')
                                     ->fileAttachmentsVisibility('public')
-                                    ->fileAttachmentsDirectory('uploads')
-                                    ->profile('default|simple|full|minimal|none|custom')
+                                    ->fileAttachmentsDirectory('upload')
+                                    ->profile('full')
                                     ->columnSpan('full')
                             ])
                     ])
