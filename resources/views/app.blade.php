@@ -22,6 +22,8 @@
 
                 @yield('main')
             </div>
+
+            <div class="site-content__clear"></div>
         </div>
 
         @yield('footer')
