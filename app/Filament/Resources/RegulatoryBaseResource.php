@@ -67,7 +67,7 @@ class RegulatoryBaseResource extends Resource
 
                                 Forms\Components\FileUpload::make('document')
                                     ->label('Файлы')
-                                    ->disk('annual-reporting')
+                                    ->disk('regulatory-base')
                                     ->required(),
                             ])
                             ->label('Файлы')

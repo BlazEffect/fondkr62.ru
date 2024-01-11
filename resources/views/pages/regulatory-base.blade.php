@@ -21,7 +21,7 @@
                 @foreach($regulatoryBase->documents as $document)
                     <div class="main-files__item">
                         <a class="main-files__link"
-                           href="/annual-reporting/{{ $document['document'] }}"
+                           href="/regulatory-base/{{ $document['document'] }}"
                            target="_blank">
                             {{ $document['name'] }}
                         </a>

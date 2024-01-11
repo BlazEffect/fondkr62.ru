@@ -44,6 +44,14 @@ return [
             'throw' => false,
         ],
 
+        'regulatory-base' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/regulatory-base'),
+            'url' => env('APP_URL').'/regulatory-base',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         'annual-reporting' => [
             'driver' => 'local',
             'root' => storage_path('app/public/annual-reporting'),
@@ -78,6 +86,7 @@ return [
     */
 
     'links' => [
+        public_path('regulatory-base') => storage_path('app/public/regulatory-base'),
         public_path('annual-reporting') => storage_path('app/public/annual-reporting'),
         public_path('upload') => storage_path('app/public/upload'),
     ],
