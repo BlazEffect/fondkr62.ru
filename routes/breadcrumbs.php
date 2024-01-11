@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\AnnualReporting;
 use App\Models\Page;
 use App\Models\RegulatoryBase;
 use Diglactic\Breadcrumbs\Breadcrumbs;
@@ -22,6 +23,15 @@ Breadcrumbs::for('regulatory-base', function (BreadcrumbTrail $trail, Regulatory
     }
 
     $trail->push($regulatoryBase->name);
+});
+
+Breadcrumbs::for('annual-reporting', function (BreadcrumbTrail $trail, AnnualReporting $annualReporting) {
+    $trail->parent('home');
+
+    $trail->push('Отчетность', '/reports/yearly');
+    $trail->push('Ежегодная отчетность', '/reports/yearly');
+
+    $trail->push($annualReporting->name);
 });
 
 Breadcrumbs::for('custom-page', function (BreadcrumbTrail $trail, Page $page) {
