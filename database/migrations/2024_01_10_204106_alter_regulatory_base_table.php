@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->dropColumn('section_id');
 
             $table->json('documents')->nullable();
+            $table->string('section_name');
         });
     }
 
@@ -22,6 +23,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('section_id');
 
             $table->dropColumn('documents');
+            $table->dropColumn('section_name');
         });
     }
 };
