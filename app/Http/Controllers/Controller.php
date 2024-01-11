@@ -56,41 +56,41 @@ class Controller extends BaseController
             ],
             [
                 'title' => 'Нормативно-правовая база',
-                'link' => '',
+                'link' => '/bazaprav',
                 'children' => [
                     [
                         'title' => 'Федеральное законодательство',
-                        'link' => '',
+                        'link' => '/bazaprav/federal',
                         'children' => [
                             [
                                 'title' => 'Законы',
-                                'link' => '',
+                                'link' => '/bazaprav/federal/laws',
                             ],
                             [
                                 'title' => 'Приказы',
-                                'link' => '',
+                                'link' => '/bazaprav/federal/orders',
                             ],
                             [
                                 'title' => 'Постановления',
-                                'link' => '',
+                                'link' => '/bazaprav/federal/decrees',
                             ],
                             [
                                 'title' => 'Регламенты и рекомендации',
-                                'link' => '',
+                                'link' => '/bazaprav/federal/reglaments',
                             ]
                         ]
                     ],
                     [
                         'title' => 'Региональное законодательство',
-                        'link' => '',
+                        'link' => '/reports/operator',
                         'children' => [
                             [
                                 'title' => 'Законы',
-                                'link' => '',
+                                'link' => '/bazaprav/federal/laws',
                             ],
                             [
                                 'title' => 'Постановления',
-                                'link' => '',
+                                'link' => '/bazaprav/federal/decrees',
                             ]
                         ]
                     ]
