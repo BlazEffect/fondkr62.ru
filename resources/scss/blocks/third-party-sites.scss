@@ -1,0 +1,12 @@
+.third-party-sites {
+    margin-top: 52px;
+    margin-bottom: 100px;
+
+    // .third-party-sites__list
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-gap: 5px;
+        grid-column-gap: 80px;
+    }
+}
