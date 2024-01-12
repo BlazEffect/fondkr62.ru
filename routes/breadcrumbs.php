@@ -39,6 +39,12 @@ Breadcrumbs::for('reviews', function (BreadcrumbTrail $trail) {
     $trail->push('Отзывы');
 });
 
+Breadcrumbs::for('owners-premises', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Собственникам помещений');
+    $trail->push('Образцы запросов');
+});
+
 Breadcrumbs::for('custom-page', function (BreadcrumbTrail $trail, Page $page) {
     $trail->parent('home');
 
