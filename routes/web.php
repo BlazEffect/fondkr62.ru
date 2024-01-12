@@ -4,6 +4,7 @@ use App\Http\Controllers\AnnualReportingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegulatoryBaseController;
+use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,8 @@ Route::get('/reports/yearly/{annualReporting:slug}', [AnnualReportingController:
         abort(404);
     })
     ->name('annual-reporting');
+
+Route::resource('/reviews', ReviewsController::class)->only(['index', 'store']);
 
 Route::get('{page:url}', [PageController::class, 'index'])
     ->where('page', '.*')
