@@ -45,6 +45,11 @@ Breadcrumbs::for('owners-premises', function (BreadcrumbTrail $trail) {
     $trail->push('Образцы запросов');
 });
 
+Breadcrumbs::for('personal-account-status', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Состояние лицевого счета');
+});
+
 Breadcrumbs::for('custom-page', function (BreadcrumbTrail $trail, Page $page) {
     $trail->parent('home');
 
