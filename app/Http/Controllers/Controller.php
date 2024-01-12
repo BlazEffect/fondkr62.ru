@@ -216,7 +216,7 @@ class Controller extends BaseController
             ],
             [
                 'title' => 'Отзывы',
-                'link' => '',
+                'link' => '/reviews',
             ],
             [
                 'title' => 'Контакты',
