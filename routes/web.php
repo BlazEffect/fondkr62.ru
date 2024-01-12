@@ -29,7 +29,8 @@ Route::get('/reports/yearly/{annualReporting:slug}', [AnnualReportingController:
     })
     ->name('annual-reporting');
 
-Route::resource('/reviews', ReviewsController::class)->only(['index', 'store']);
+Route::resource('/reviews', ReviewsController::class)
+    ->only(['index', 'store']);
 
 Route::get('{page:url}', [PageController::class, 'index'])
     ->where('page', '.*')

@@ -34,6 +34,11 @@ Breadcrumbs::for('annual-reporting', function (BreadcrumbTrail $trail, AnnualRep
     $trail->push($annualReporting->name);
 });
 
+Breadcrumbs::for('reviews', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Отзывы');
+});
+
 Breadcrumbs::for('custom-page', function (BreadcrumbTrail $trail, Page $page) {
     $trail->parent('home');
 
