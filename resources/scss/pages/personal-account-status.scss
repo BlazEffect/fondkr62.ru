@@ -1,0 +1,72 @@
+.main {
+    // .main-personal-account-status
+    &-personal-account-status {
+        background-color: #3D9DF7;
+        border-radius: 6px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        cursor: pointer;
+
+        // .main-personal-account-status__input
+        &__input {
+            height: 45px;
+            border-radius: 6px;
+            font-size: 16px;
+            padding-left: 30px;
+            margin: 6px 0 6px 8px;
+            width: 75%;
+
+            // .main-personal-account-status__input::placeholder
+            &::placeholder {
+                font-family: "Inter-SemiBold";
+                color: #00000032;
+            }
+        }
+
+        // .main-personal-account-status__button
+        &__button {
+            font-family: "Inter-SemiBold";
+            padding: 8px;
+            cursor: pointer;
+            background-color: #00438233;
+            border-radius: 12px;
+            color: #fff;
+            display: flex;
+            height: 45px;
+            align-items: center;
+        }
+
+        // .main-personal-account-status__helper-text
+        &__helper-text {
+            font-family: "Inter-SemiBold";
+            font-size: 16px;
+            color: #00000032;
+            margin-top: 12px;
+        }
+
+        // .main-personal-account-status__error
+        &__error {
+            margin-top: 10px;
+            color: #f00;
+        }
+
+        // .main-personal-account-status__data
+        &__data {
+            margin-top: 10px;
+        }
+
+        // .main-personal-account-status__info
+        &__info {
+            margin-top: 60px;
+
+            & > p {
+                margin-bottom: 26px;
+            }
+
+            & > img {
+                margin-bottom: 48px;
+            }
+        }
+    }
+}

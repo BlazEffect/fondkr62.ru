@@ -1,0 +1,372 @@
+#content {
+    width: 1480px;
+    margin: 0 auto !important;
+}
+
+.form_block {
+    width: 953px;
+}
+
+#print_form {
+    border: 1px solid #ccc;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    padding: 10px;
+}
+
+#print_form label {
+    display: block;
+    font: 16px Arial, sans-serif;
+    padding: 10px 3px 4px 0;
+}
+
+#print_form label span {
+    display: none;
+    color: #c00;
+    font-size: 14px;
+}
+
+#print_form label div {
+    display: none;
+    color: #c00;
+    font-size: 14px;
+}
+
+#print_form label.isEmpty span {
+    display: inline;
+}
+
+#print_form label.isWrong div {
+    display: inline;
+}
+
+#print_form select {
+    margin-right: 10px;
+}
+
+#print_form input#print_submit {
+    display: block;
+    margin: 10px 0 0;
+    float: right;
+    cursor: pointer;
+}
+
+#print_form input {
+    font-size: 16px;
+}
+
+#print_form input.fill_nesc_input {
+    width: 690px;
+}
+
+#print_form input#print_year {
+    width: 100px;
+}
+
+#print_btn {
+    font-size: 18px;
+    float: right;
+    width: 200px;
+    margin: 20px 0 50px;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    appearance:button;
+    -moz-appearance:button; /* Firefox */
+    -webkit-appearance:button;
+    font: 22px Calibri, Verdana, sans-serif;
+}
+
+.izv {
+    /*	padding-top: 30px; */
+}
+
+.izv .izv {
+    padding-top: 10px;
+}
+
+.izv_half {
+    border: 3px solid black;
+    height: 320px;
+    font: 14px Calibri, Verdana, sans-serif;
+}
+
+#top_half.izv_half {
+    border-bottom: none;
+}
+
+.address_sign {
+    display: inline-block;
+    width: 390px;
+    vertical-align: top;
+}
+
+.izv_half .izv_left {
+    float: left;
+    width: 255px;
+    height: inherit;
+
+    border-right: 3px solid black;
+}
+
+.izv_half .izv_left span {
+    display: block;
+    text-align: center;
+    padding: 5px 0 0;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.izv_half .izv_right {
+    float: left;
+    width: 690px;
+    height: inherit;
+}
+
+.izv_half .izv_right h3 {
+    font-size: 16px;
+    text-decoration: underline;
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+.izv_half .izv_right .izv_info {
+    padding: 5px;
+}
+
+.izv_half .izv_right .address_block {
+    padding-top: 0;
+    height: 34px;
+}
+
+.person_block {
+    float: left;
+    width: 430px;
+}
+
+.fio_block {
+    height: 30px;
+}
+
+.izv_half .izv_right .till_block {
+    border-top: 1px dashed black;
+    border-bottom: 1px dashed black;
+}
+
+.izv_half .izv_right .till_block .month_block {
+    float: left;
+    width: 430px;
+}
+
+.izv_half .izv_right .till_block .month {
+    font: 14px Calibri, Verdana, sans-serif;
+    border: none;
+}
+
+.izv_half .izv_right .till_block .till {
+    float: left;
+    width: 240px;
+    text-align: right;
+    padding-top: 5px;
+}
+
+.izv_half .izv_right .ls_block {
+
+}
+
+.izv_half .izv_right .ls_barcode {
+    float: left;
+    width: 210px;
+    height: 50px;
+    position: relative;
+    top: 5px;
+}
+
+.izv_half .izv_right .ls_barcode .ls_barcode_inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+/*
+.izv_half .izv_right .ls_barcode .ls_barcode_inner div:last-child {
+	display: none;
+}
+*/
+.izv_half .izv_right .square_block {
+    float: left;
+    width: 400px;
+}
+
+.izv_half .izv_right .square_block .square {
+    width: 40px;
+    border: none;
+    text-align: right;
+    padding-right: 2px;
+    margin-right: 2px;
+}
+
+.izv_half .izv_right .tarif_block {
+    padding-top: 5px;
+}
+
+.izv_half .izv_right .tarif_block b {
+    padding-right: 5px;
+}
+
+.izv_half .izv_right table.payment_hold {
+    border-collapse: collapse;
+    margin-left: 5px;
+    width: 672px;
+}
+
+.izv_half .izv_right table.payment_hold td, .izv_half .izv_right table.payment_hold th {
+    border: 2px solid black;
+}
+
+.izv_half .izv_right table.payment_hold .balance {
+    border: none;
+    text-align: center;
+    font: 14px Calibri, Verdana, sans-serif;
+}
+
+.izv_half .izv_right table.payment_hold .balance_wrap, .izv_half .izv_right table.payment_hold .nachisleno, .izv_half .izv_right table.payment_hold .peni {
+    text-align: center;
+}
+
+.izv_half .izv_right table.payment_hold .total {
+    text-align: center;
+    font-weight: bold;
+}
+
+.izv_half .izv_right .signature {
+    text-align: right;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 25px 14px 0 0;
+}
+
+div.clear {
+    clear: both;
+    float: none;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+#print_file {
+    display: n
+}
+
+#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: black url(../img/preloader.gif) center center no-repeat;
+    opacity: 0.7;
+}
+
+/* Обложка */
+
+#front_cover {
+    font-family: Calibri, sans-serif;
+    font-size: 1.3em;
+    display: none;
+}
+
+#inner_izv_block {
+    width: max-content;
+    display: none;
+}
+
+#inner_izv_block input {
+    background-color: inherit;
+}
+
+#inner_izv_real #front_cover {
+    display: block;
+    width: 956px;
+}
+
+#front_cover #top_title {
+    font-size: 1.4em;
+    text-align: right;
+    margin-bottom: 0;
+    padding-bottom: 40px;
+}
+
+#front_cover #top_address {
+    padding-left: 55%;
+    padding-bottom: 10px;
+}
+
+#front_cover h1 {
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-size: 3.2em;
+}
+
+#front_cover #under_title {
+    text-align: center;
+    display: block;
+    padding-bottom: 75px;
+}
+
+#front_cover #low_address {
+    padding-left: 55%;
+    font-family: Arial, sans-serif;
+}
+
+#front_cover #low_address #la_title {
+    font-weight: bold;
+}
+
+@media print {
+    .izvwrap {
+        height: 50%;
+    }
+
+    .izvwrap_second {
+        border-top: 1px solid black;
+    }
+}
+
+#attention_window {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    width: 450px;
+    border: 1px solid #999;
+    background: #eee;
+}
+
+#attention_window #aw_message {
+    padding: 5px;
+}
+
+#attention_window #aw_message h2 {
+    padding: 0;
+    margin: 0;
+}
+
+#attention_window #img_wrap {
+    width: 440px;
+    height: 624px;
+    padding: 5px;
+    background: #333;
+}
+
+#attention_window div img {
+    width: 100%;
+}
+
+
