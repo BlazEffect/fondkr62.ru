@@ -21,7 +21,7 @@
             </div>
 
             <div class="main-cards__card">
-                <a href="#" target="_blank">
+                <a href="/email-receipts">
                     <img src="/assets/images/main/cards-block/letter.png"
                          alt="Получать квитанции"
                          class="main-cards__card-icon">
@@ -35,7 +35,7 @@
             </div>
 
             <div class="main-cards__card">
-                <a href="#" target="_blank">
+                <a href="/declaration/declaration/KI21FGc95G0" target="_blank">
                     <img src="/assets/images/main/cards-block/contact.png"
                          alt="Приглашаем на работу"
                          class="main-cards__card-icon">
