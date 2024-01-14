@@ -38,6 +38,10 @@
     </div>
 
     <div class="header-bottom">
+        <label class="header-bottom__hamburger" for="side-menu">
+            <span class="header-bottom__hamburger-line"></span>
+        </label>
+
         <nav class="header-bottom__menu">
             <ul class="header-bottom__menu-list">
                 @foreach($menu as $menuItems)

@@ -3,7 +3,17 @@
     margin-top: 72px;
     margin-left: 37px;
     margin-bottom: 100px;
-    width: 375px;
+    width: 24%;
+
+    @media (max-width: $tablet) {
+        order: 1;
+        width: 50%;
+        margin: 50px auto 100px;
+    }
+
+    @media (max-width: $mobile) {
+        width: 100%;
+    }
 
     // .aside-menu
     &-menu {
@@ -13,6 +23,7 @@
             border-radius: 8px;
             padding-left: 40px;
             line-height: 24px;
+            padding-right: 20px;
 
             // .aside-menu--first__item
             &__item {
@@ -40,6 +51,7 @@
             border-radius: 8px;
             padding-left: 60px;
             line-height: 24px;
+            padding-right: 20px;
 
             // .aside-menu--second__item
             &__item {

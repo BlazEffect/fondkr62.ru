@@ -1,10 +1,23 @@
+@use "sass:math";
+@import "../base/mixins";
+@import "../base/variables";
+
 .main {
     padding-top: 72px;
 
     // .main-cards
     &-cards {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-gap: percent(80, 1440);
+
+        @media (max-width: $laptop) {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        }
+
+        @media (max-width: $mobile) {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
     }
 
     // .main-cards__card
@@ -18,12 +31,23 @@
         border-radius: 8px;
         line-height: 19px;
 
+        @media (max-width: $laptop) {
+            // .main-cards__card-icon
+            &-icon {
+                height: 70px;
+            }
+        }
+
         // .main-cards__card-text
         &-text {
             font-family: "Inter-SemiBold";
             font-size: 16px;
             line-height: 19px;
             text-align: center;
+
+            @media (max-width: $laptop) {
+                font-size: 14px;
+            }
         }
     }
 
@@ -36,6 +60,10 @@
         gap: 25px;
         align-items: center;
         border-radius: 4px;
+
+        @media (max-width: $mobile) {
+            flex-direction: column;
+        }
 
         // .main-about-me__content-heading
         &__content-heading {

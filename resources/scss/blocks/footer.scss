@@ -6,11 +6,27 @@
     &__wrapper {
         display: flex;
         padding: 32px 0;
+
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            gap: 16px;
+        }
     }
 
     // .footer-map
     &-map {
         margin-right: 27px;
+
+        @media (max-width: $tablet) {
+            margin: 0 auto;
+        }
+
+        @media (max-width: $mobileSmall) {
+            & > iframe {
+                width: 307px;
+                height: 203px;
+            }
+        }
     }
 
     // .footer-contacts
@@ -52,6 +68,10 @@
         &__items {
             display: flex;
             justify-content: space-between;
+
+            @media (max-width: $tablet) {
+                justify-content: start;
+            }
         }
     }
 

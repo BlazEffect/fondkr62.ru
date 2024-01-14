@@ -14,6 +14,8 @@
     <body>
         @yield('header')
 
+        <div class="overlay"></div>
+
         <div class="site-content">
             <div class="site__container">
                 @yield('breadcrumbs')

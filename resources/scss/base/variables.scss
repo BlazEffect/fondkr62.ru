@@ -1,0 +1,23 @@
+$mainColor: #000;
+$lightBlueColor: #3D9DF7;
+
+$fontFamily: "Inter-Regular";
+$fontSize: rem(20); // размер шрифта по умолчанию
+
+$minWidth: 320;
+// Ширина полотна (макета)
+$maxWidth: 1920;
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 1620;
+// Общий отступ у контейнера
+$containerPadding: 300;
+
+// Ширина страбатывания первого брейкпоинта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Брейк-поинты
+$pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$laptop: em(1440); // Некоторые ноутбуки
+$tablet: em(991); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: em(767); // Телефоны L
+$mobileSmall: em(479); // Телефоны S
