@@ -1,19 +1,11 @@
 @extends('app')
 
-@section('header')
-    @include('layout.header')
-@endsection
-
 @section('styles')
     @vite('resources/scss/pages/reviews.scss')
 @endsection
 
 @section('breadcrumbs')
     {{ Breadcrumbs::render('owners-premises') }}
-@endsection
-
-@section('aside')
-    @include('layout.aside')
 @endsection
 
 @section('main')
@@ -78,8 +70,4 @@
             </div>
         </div>
     </main>
-@endsection
-
-@section('footer')
-    @include('layout.footer')
 @endsection

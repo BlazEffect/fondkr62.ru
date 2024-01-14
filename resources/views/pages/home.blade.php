@@ -1,15 +1,7 @@
 @extends('app')
 
-@section('header')
-    @include('layout.header')
-@endsection
-
 @section('styles')
     @vite('resources/scss/pages/home.scss')
-@endsection
-
-@section('aside')
-    @include('layout.aside')
 @endsection
 
 @section('main')
@@ -146,8 +138,4 @@
             </div>
         </section>
     </main>
-@endsection
-
-@section('footer')
-    @include('layout.footer')
 @endsection

@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        @yield('header')
+        @include('layout.header')
 
         <div class="overlay"></div>
 
@@ -20,7 +20,7 @@
             <div class="site__container">
                 @yield('breadcrumbs')
 
-                @yield('aside')
+                @include('layout.aside')
 
                 @yield('main')
 
@@ -30,7 +30,7 @@
             <div class="site-content__clear"></div>
         </div>
 
-        @yield('footer')
+        @include('layout.footer')
 
         @yield('scripts')
     </body>

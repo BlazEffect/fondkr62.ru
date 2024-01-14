@@ -1,19 +1,11 @@
 @extends('app')
 
-@section('header')
-    @include('layout.header')
-@endsection
-
 @section('styles')
     @vite('resources/scss/pages/personal-account-status.scss')
 @endsection
 
 @section('breadcrumbs')
     {{ Breadcrumbs::render('personal-account-status') }}
-@endsection
-
-@section('aside')
-    @include('layout.aside')
 @endsection
 
 @section('main')
@@ -69,8 +61,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <script src="/assets/js/qr.js"></script>
-@endsection
-
-@section('footer')
-    @include('layout.footer')
 @endsection

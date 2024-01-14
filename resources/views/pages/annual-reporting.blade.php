@@ -1,15 +1,7 @@
 @extends('app')
 
-@section('header')
-    @include('layout.header')
-@endsection
-
 @section('breadcrumbs')
     {{ Breadcrumbs::render('annual-reporting', $annualReporting) }}
-@endsection
-
-@section('aside')
-    @include('layout.aside')
 @endsection
 
 @section('main')
@@ -30,8 +22,4 @@
             </div>
         </div>
     </main>
-@endsection
-
-@section('footer')
-    @include('layout.footer')
 @endsection
