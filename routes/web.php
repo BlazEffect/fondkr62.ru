@@ -40,6 +40,8 @@ Route::get('/account', [PersonalAccountController::class, 'accountStatus']);
 Route::post('/account/getStatus', [PersonalAccountController::class, 'getStatus']);
 Route::post('/account/getReceipt', [PersonalAccountController::class, 'getReceipt']);
 
+Route::get('/email-receipts', [PersonalAccountController::class, 'emailReceipts']);
+
 Route::get('{page:url}', [PageController::class, 'index'])
     ->where('page', '.*')
     ->missing(function () {

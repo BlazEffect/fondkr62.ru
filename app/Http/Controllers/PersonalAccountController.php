@@ -276,6 +276,11 @@ class PersonalAccountController extends Controller
         ];
     }
 
+    public function emailReceipts()
+    {
+        return view('pages.personal-account-email-receipts', $this->vars);
+    }
+
     public function getReceipt(Request $request)
     {
         $data = FlatsFull::query()

@@ -50,6 +50,11 @@ Breadcrumbs::for('personal-account-status', function (BreadcrumbTrail $trail) {
     $trail->push('Состояние лицевого счета');
 });
 
+Breadcrumbs::for('email-receipts', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Заявление на получение квитанции на электронную почту');
+});
+
 Breadcrumbs::for('custom-page', function (BreadcrumbTrail $trail, Page $page) {
     $trail->parent('home');
 
