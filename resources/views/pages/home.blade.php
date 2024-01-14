@@ -16,48 +16,56 @@
     <main class="main">
         <section class="main-cards">
             <div class="main-cards__card">
-                <img src="/assets/images/main/cards-block/card.png"
-                     alt="Оплате взносов"
-                     class="main-cards__card-icon">
+                <a href="/assets/images/main/cards-block/oplata.png" target="_blank">
+                    <img src="/assets/images/main/cards-block/card.png"
+                         alt="Оплате взносов"
+                         class="main-cards__card-icon">
 
-                <div class="main-cards__card-text">
-                    Об оплате взносов на<br>
-                    капитальный ремонт
-                </div>
+                    <div class="main-cards__card-text">
+                        Об оплате взносов на<br>
+                        капитальный ремонт
+                    </div>
+                </a>
             </div>
 
             <div class="main-cards__card">
-                <img src="/assets/images/main/cards-block/letter.png"
-                     alt="Получать квитанции"
-                     class="main-cards__card-icon">
+                <a href="#" target="_blank">
+                    <img src="/assets/images/main/cards-block/letter.png"
+                         alt="Получать квитанции"
+                         class="main-cards__card-icon">
 
-                <div class="main-cards__card-text">
-                    Получать квитанции за<br>
-                    капремонт на<br>
-                    электронную почту
-                </div>
+                    <div class="main-cards__card-text">
+                        Получать квитанции за<br>
+                        капремонт на<br>
+                        электронную почту
+                    </div>
+                </a>
             </div>
 
             <div class="main-cards__card">
-                <img src="/assets/images/main/cards-block/contact.png"
-                     alt="Приглашаем на работу"
-                     class="main-cards__card-icon">
+                <a href="#" target="_blank">
+                    <img src="/assets/images/main/cards-block/contact.png"
+                         alt="Приглашаем на работу"
+                         class="main-cards__card-icon">
 
-                <div class="main-cards__card-text">
-                    Приглашаем на работу
-                </div>
+                    <div class="main-cards__card-text">
+                        Приглашаем на работу
+                    </div>
+                </a>
             </div>
 
             <div class="main-cards__card">
-                <img src="/assets/images/main/cards-block/question.png"
-                     alt="Предложение о проведении"
-                    class="main-cards__card-icon">
+                <a href="#" target="_blank">
+                    <img src="/assets/images/main/cards-block/question.png"
+                         alt="Предложение о проведении"
+                        class="main-cards__card-icon">
 
-                <div class="main-cards__card-text">
-                    Предложение<br>
-                    о проведении<br>
-                    капитального ремонта
-                </div>
+                    <div class="main-cards__card-text">
+                        Предложение<br>
+                        о проведении<br>
+                        капитального ремонта
+                    </div>
+                </a>
             </div>
         </section>
 
