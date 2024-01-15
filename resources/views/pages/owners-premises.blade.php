@@ -13,58 +13,38 @@
         <h2 class="main__page-heading">Образцы запросов</h2>
 
         <div class="main__page-wrapper">
-            <p>Заявления</p>
+            <p style="margin-bottom: 20px">Заявления</p>
 
             <div class="main-files__list">
                 <div class="main-files__item">
                     <a class="main-files__link"
-                       href="/upload/constituent-documents/postanovlenie-o-sozdanii-regionalnogo-operatora.pdf"
+                       href="/upload/sample-requests/spravka-zadolg.docx"
                        target="_blank">
-                        Постановеление № 445 от 19 декабря 2013 г. &laquo;О создании Регионального оператора&raquo;
+                        Бланк заявления на выдачу справки об отсутствии задолженности по помещению
                     </a>
                 </div>
 
                 <div class="main-files__item">
                     <a class="main-files__link"
-                       href="/upload/constituent-documents/svidetelstvo-o-registracii-nko.pdf"
-                       target="_blank" rel="noopener">
-                        Свидетельство о государственной
-                        регистрации некоммерческой организации
+                       href="/upload/sample-requests/zayav-izm.docx"
+                       target="_blank">
+                        Бланк заявления собственника на изменение данных по помещению в многоквартирном доме
                     </a>
                 </div>
 
                 <div class="main-files__item">
                     <a class="main-files__link"
-                       href="/upload/constituent-documents/svidetelstvo-ogrjul.pdf"
-                       target="_blank" rel="noopener">
-                        Свидетельство о Государственной
-                        регистрации юридического лица
+                       href="/upload/sample-requests/zayav.docx"
+                       target="_blank">
+                        Бланк заявления
                     </a>
                 </div>
 
                 <div class="main-files__item">
                     <a class="main-files__link"
-                       href="/upload/constituent-documents/svidetelstvo-nalogvyj-uchet.pdf"
-                       target="_blank" rel="noopener">
-                        Свидетельство о постановке на учет в
-                        Налоговом органе
-                    </a>
-                </div>
-
-                <div class="main-files__item">
-                    <a class="main-files__link"
-                       href="/upload/constituent-documents/ustav2022.pdf" target="_blank"
-                       rel="noopener">
-                        Устав
-                    </a>
-                </div>
-
-                <div class="main-files__item">
-                    <a class="main-files__link"
-                       href="/upload/constituent-documents/rasp-dubrovin.pdf" target="_blank"
-                       rel="noopener">
-                        Распоряжение Правительства Рязанской области от 16
-                        ноября 2022г. № 630-р о назначении руководителя
+                       href="/upload/sample-requests/zayav-dostavka-kvit.docx"
+                       target="_blank">
+                        Бланк заявления на доставку квитанций на оплату взносов на капитальный ремонт
                     </a>
                 </div>
             </div>
