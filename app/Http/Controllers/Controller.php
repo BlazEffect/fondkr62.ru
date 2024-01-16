@@ -64,33 +64,33 @@ class Controller extends BaseController
                         'children' => [
                             [
                                 'title' => 'Законы',
-                                'link' => '/bazaprav/federal/laws',
+                                'link' => '/bazaprav/federal/zakony',
                             ],
                             [
                                 'title' => 'Приказы',
-                                'link' => '/bazaprav/federal/orders',
+                                'link' => '/bazaprav/federal/prikazy',
                             ],
                             [
                                 'title' => 'Постановления',
-                                'link' => '/bazaprav/federal/decrees',
+                                'link' => '/bazaprav/federal/postanovleniia',
                             ],
                             [
                                 'title' => 'Регламенты и рекомендации',
-                                'link' => '/bazaprav/federal/reglaments',
+                                'link' => '/bazaprav/federal/reglamenty-i-rekomendacii',
                             ]
                         ]
                     ],
                     [
                         'title' => 'Региональное законодательство',
-                        'link' => '/reports/operator',
+                        'link' => '/bazaprav/regional',
                         'children' => [
                             [
                                 'title' => 'Законы',
-                                'link' => '/bazaprav/federal/laws',
+                                'link' => '/bazaprav/regional/zakony',
                             ],
                             [
                                 'title' => 'Постановления',
-                                'link' => '/bazaprav/federal/decrees',
+                                'link' => '/bazaprav/regional/postanovleniia',
                             ]
                         ]
                     ]
@@ -98,57 +98,57 @@ class Controller extends BaseController
             ],
             [
                 'title' => 'Отчётность',
-                'link' => '',
+                'link' => '/reports/yearly',
                 'children' => [
                     [
                         'title' => 'Ежегодная отчетность',
-                        'link' => '',
+                        'link' => '/reports/yearly',
                         'children' => [
                             [
                                 'title' => 'За 2014 год',
-                                'link' => '',
+                                'link' => '/reports/yearly/za-2014-god',
                             ],
                             [
                                 'title' => 'За 2015 год',
-                                'link' => '',
+                                'link' => '/reports/yearly/za-2015-god',
                             ],
                             [
                                 'title' => 'За 2016 год',
-                                'link' => '',
+                                'link' => '/reports/yearly/za-2016-god',
                             ],
                             [
                                 'title' => 'За 2017 год',
-                                'link' => '',
+                                'link' => '/reports/yearly/za-2017-god',
                             ],
                             [
                                 'title' => 'За 2018 год',
-                                'link' => '',
+                                'link' => '/reports/yearly/za-2018-god',
                             ],
                             [
                                 'title' => 'За 2019 год',
-                                'link' => '',
+                                'link' => '/reports/yearly/za-2019-god',
                             ],
                             [
                                 'title' => 'За 2020 год',
-                                'link' => '',
+                                'link' => '/reports/yearly/za-2020-god',
                             ],
                             [
                                 'title' => 'За 2021 год',
-                                'link' => '',
+                                'link' => '/reports/yearly/za-2021-god',
                             ],
                             [
                                 'title' => 'За 2022 год',
-                                'link' => '',
+                                'link' => '/reports/yearly/za-2022-god',
                             ]
                         ]
                     ],
                     [
                         'title' => 'Результаты контрольных мероприятий',
-                        'link' => '',
+                        'link' => '/reports/audits',
                     ],
                     [
                         'title' => 'Отчет регионального оператора (965пр от 30.12.2015)',
-                        'link' => '',
+                        'link' => '/reports/operator',
                     ]
                 ]
             ],
@@ -172,15 +172,15 @@ class Controller extends BaseController
             ],
             [
                 'title' => 'Проведение каремонта',
-                'link' => '',
+                'link' => '/programs/region',
                 'children' => [
                     [
                         'title' => 'Региональная программа',
-                        'link' => '',
+                        'link' => '/programs/region',
                     ],
                     [
                         'title' => 'Краткосрочные планы',
-                        'link' => '',
+                        'link' => '/programs/urgent',
                         'children' => [
                             [
                                 'title' => 'На 2017-2019 годы',
@@ -210,7 +210,7 @@ class Controller extends BaseController
                     ],
                     [
                         'title' => 'Реестр квалифицированных подрядчиков',
-                        'link' => '',
+                        'link' => '/programs/qualreestr',
                     ]
                 ]
             ],
@@ -220,7 +220,7 @@ class Controller extends BaseController
             ],
             [
                 'title' => 'Контакты',
-                'link' => '',
+                'link' => '/contacts',
             ]
         ];
     }
