@@ -61,6 +61,11 @@ Breadcrumbs::for('email-receipts', function (BreadcrumbTrail $trail) {
     $trail->push('Заявление на получение квитанции на электронную почту');
 });
 
+Breadcrumbs::for('find-personal-account', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Узнать свой лицевой счет');
+});
+
 Breadcrumbs::for('custom-page', function (BreadcrumbTrail $trail, Page $page) {
     $trail->parent('home');
 

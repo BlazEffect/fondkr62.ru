@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Account;
 use App\Models\FlatsFull;
+use App\Models\House;
+use App\Models\Street;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -341,6 +343,199 @@ class PersonalAccountController extends Controller
             number_format($nach, 2, ',', ' ') . '||' .
             number_format($peni, 2, ',', ' ') . '||' .
             number_format(($dolg + $nach + $peni), 2, ',', ' ') . '||ST00012|Name=Фонд капитального ремонта многоквартирных домов Рязанской области|PersonalAcc=40703810953000000557|BankName=ОТДЕЛЕНИЕ N 8606 СБЕРБАНКА РОССИИ г. РЯЗАНЬ|BIC=046126614|CorrespAcc=30101810500000000614|PayeeINN=6229990334|persAcc=' . $request->input('ls') . '|Purpose=Оплата взноса на капитальный ремонт|PayerAddress=' . $data['FullAddress'] . (strpos($data['Kv'], 'Н') == false ? ' , кв. ' : ' , пом. ') . $data['Kv'] . '|Date=' . date('d.m.Y') . '|SumNedopl=' . ($dolg * 100) . '|SumNachisl=' . ($nach * 100) . '|SumVznos=' . (($dolg + $nach + $peni) * 100) . '|SumPeny=' . ($peni * 100));
+    }
+
+    public function user()
+    {
+        $this->vars['streets'] = Street::query()
+            ->where('Pid', 1)
+            ->orderBy('Name')
+            ->get();
+
+        return view('pages.find-personal-account', $this->vars);
+    }
+
+    public function userMo(Request $request)
+    {
+        $id = $request->input('id') ?? 1;
+
+        $streets = Street::query()
+            ->where('Pid', $id)
+            ->orderBy('DopNumber')
+            ->orderBy('Name')
+            ->get();
+
+        $new = '';
+
+        if ($id == 28 || $id == 36 || $id == 37 || $id == 38) {
+            $streetsAll = Street::query()
+                ->where('Level', '7')
+                ->orderBy('DopNumber')
+                ->orderBy('Name')
+                ->get();
+
+            foreach ($streets as $street) {
+                $b = true;
+                foreach ($streetsAll as $streetAll)
+                    if ($streetAll->Pid == $street->Id) {
+                        $new .= '<div class="dda_shown_mo" href="#'.$streetAll->Id.'" style="display: block !important; color: #333; cursor: pointer;">'.trim(trim($street->DopNumber).' '.trim($street->Name).' '.trim($street->TypeSmall)).' '.
+                            trim(trim($streetAll->DopNumber).' '.trim($streetAll->Name).' '.trim($streetAll->TypeSmall)).'</div>';
+                        $b = false;
+                    }
+                if ($b)
+                    $new .= '<div class="dda_shown_mo" href="#'.$street->Id.'" style="display: block !important; color: #333; cursor: pointer;">'.trim(trim($street->DopNumber).' '.trim($street->Name).' '.trim($street->TypeSmall)).'</div>';
+            }
+        } else {
+            foreach ($streets as $street) {
+                $new .= '<div class="dda_shown_np" href="#'.$street->Id.'" style="display: block !important; color: #333; cursor: pointer;">'.trim(trim($street->DopNumber).' '.trim($street->Name).' '.trim($street->TypeSmall)).'</div>';
+            }
+        }
+
+        $html = '';
+
+        if ($id == 28 || $id == 36 || $id == 37 || $id == 38) {
+            $html = '
+            <div style="position: relative; margin-top: .5vw;" class="form_mo">
+                <div class="for_class_mo"><div></div></div>
+                <input class="kv_input_mo" style="font-size: 1.2em; padding: .3vw .5vw; width: 330px;" type="text" rel="0" id="choose_mo_2" autocomplete="off" value="" alt="" placeholder="Улица">
+                <div class="kv_dd_mo" style="display: none; position: absolute; left: -1px; padding: 0px 10px; margin-left: -10px; top: 30px; width: 100%; max-height: 162px; overflow-y: auto; border: 1px solid #2e2e2e; z-index: 1000; background: white;">'.$new.'</div>
+            </div>
+            ';
+        } else {
+            $html = '
+            <div style="position: relative; margin-top: .5vw;" class="form_mo_0">
+                <div class="for_class_mo_0"><div></div></div>
+                <input class="kv_input_np" style="font-size: 1.2em; padding: .3vw .5vw; width: 330px;" type="text" rel="0" id="choose_mo_0" autocomplete="off" value="" alt="" placeholder="Населенный пункт">
+                <div class="kv_dd_np" style="display: none; position: absolute; left: -1px; padding: 0px 10px; margin-left: -10px; top: 30px; width: 100%; max-height: 162px; overflow-y: auto; border: 1px solid #2e2e2e; z-index: 1000; background: white;">'.$new.'</div>
+            </div>
+            ';
+        }
+
+        return json_encode($html);
+    }
+
+    public function userNp(Request $request)
+    {
+        $id = $request->input('id') ?? 1;
+
+        $houses = House::query()
+            ->where('IdStreet', $id)
+            ->orderBy('NumberHouse')
+            ->orderBy('Litera')
+            ->orderBy('KorpType')
+            ->orderBy('NumKorp')
+            ->get();
+
+        $new = '';
+        $html = '';
+
+        if ($houses->count() > 0) {
+            foreach ($houses as $house) {
+                $new .= '<div class="dda_shown_hs" href="#'.$house->CodeHouse.'" style="display: block !important; color: #333; cursor: pointer;">'.trim(trim($house->NumberHouse).' '.trim($house->Litera).' '.trim($house->KorpType).' '.trim($house->NumKorp)).'</div>';
+            }
+
+            $html .= '
+            <div style="position: relative; margin-top: .5vw;" class="form_mo_2">
+			    <div class="for_class_hs"><div></div></div>
+                <input class="kv_input_hs" style="font-size: 1.2em; padding: .3vw .5vw; width: 330px;" type="text" rel="0" id="choose_mo_3" autocomplete="off" value="" alt="" placeholder="Выберите дом">
+                <div class="kv_dd_hs" style="display: none; position: absolute; left: -1px; padding: 0px 10px; margin-left: -10px; top: 30px; width: 100%; max-height: 162px; overflow-y: auto; border: 1px solid #2e2e2e; z-index: 1000; background: white;">'.$new.'</div>
+            </div>
+            ';
+        } else {
+            $streets = Street::query()
+                ->where('Pid', $id)
+                ->orderBy('DopNumber')
+                ->orderBy('Name')
+                ->get();
+
+            foreach ($streets as $street) {
+                $new .= '<div class="dda_shown_mo" href="#'.$street->Id.'" style="display: block !important; color: #333; cursor: pointer;">'.trim(trim($street->DopNumber).' '.trim($street->Name).' '.trim($street->TypeSmall)).'</div>';
+            }
+
+            $html .= '
+            <div style="position: relative; margin-top: .5vw;" class="form_mo">
+                <div class="for_class_mo"><div></div></div>
+                <input class="kv_input_mo" style="font-size: 1.2em; padding: .3vw .5vw; width: 330px;" type="text" rel="0" id="choose_mo_2" autocomplete="off" value="" alt="" placeholder="Улица">
+                <div class="kv_dd_mo" style="display: none; position: absolute; left: -1px; padding: 0px 10px; margin-left: -10px; top: 30px; width: 100%; max-height: 162px; overflow-y: auto; border: 1px solid #2e2e2e; z-index: 1000; background: white;">'.$new.'</div>
+            </div>
+            ';
+        }
+
+        return json_encode($html);
+    }
+
+    public function userHs(Request $request)
+    {
+        $id = $request->input('id') ?? 1;
+
+        $houses = House::query()
+            ->where('IdStreet', $id)
+            ->orderBy('NumberHouse')
+            ->orderBy('Litera')
+            ->orderBy('KorpType')
+            ->orderBy('NumKorp')
+            ->get();
+
+        $new = '';
+        $html = '';
+
+        foreach ($houses as $house) {
+            $new .= '<div class="dda_shown_hs" href="#'.$house->CodeHouse.'" style="display: block !important; color: #333; cursor: pointer;">'.trim(trim($house->NumberHouse).' '.trim($house->Litera).' '.trim($house->KorpType).' '.trim($house->NumKorp)).'</div>';
+        }
+
+        if ($houses->count() > 0) {
+            $html .= '
+            <div style="position: relative; margin-top: .5vw;" class="form_mo_2">
+                <div class="for_class_hs"><div></div></div>
+                <input class="kv_input_hs" style="font-size: 1.2em; padding: .3vw .5vw; width: 330px;" type="text" rel="0" id="choose_mo_3" autocomplete="off" value="" alt="" placeholder="Выберите дом">
+                <div class="kv_dd_hs" style="display: none; position: absolute; left: -1px; padding: 0px 10px; margin-left: -10px; top: 30px; width: 100%; max-height: 162px; overflow-y: auto; border: 1px solid #2e2e2e; z-index: 1000; background: white;">'.$new.'</div>
+            </div>
+            ';
+        } else {
+            $html .= '
+            <div style="position: relative; margin-top: .5vw;" class="form_mo_2">
+                <div class="for_class_hs"><div></div></div>
+                Нет домов в программе капитального ремонта
+            </div>
+            ';
+        }
+
+        return json_encode($html);
+    }
+
+    public function userLs(Request $request)
+    {
+        $code_house = $request->get('ch');
+        $kv = $request->get('kv');
+        $kom = $request->get('kom');
+
+        $flatsFull = FlatsFull::query()
+            ->where('Lso', $code_house)
+            ->where('Kv', $kv)
+            ->where('Kom', $kom)
+            ->where('NotNach', 0)
+            ->where('Del', 0)
+            ->get();
+
+        $mes = '';
+
+        foreach ($flatsFull as $flatFull) {
+            $mes .= '<div>'.$flatFull->Lso.'</div>';
+        }
+
+        $html = '';
+
+        if ($flatsFull->count() > 0) {
+            $html .= '
+            <div class="result" style="margin-top: .5vw; font-size: 1.2em;">Ваш лицевой счет: '.$mes.'</div><div class="result" style="margin-top: .5vw; font-size: 1.2em;"><a href="/account">Состояние лицевого счета</a></div>
+            ';
+        } else {
+            $html .= '
+            <div class="result" style="margin-top: .5vw; font-size: 1.2em;">Лицевой счет не найден</div>
+            ';
+        }
+
+        return json_encode($html);
     }
 
     private function myMoney($string)

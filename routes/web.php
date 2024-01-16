@@ -48,6 +48,12 @@ Route::post('/account/getReceipt', [PersonalAccountController::class, 'getReceip
 
 Route::get('/email-receipts', [PersonalAccountController::class, 'emailReceipts']);
 
+Route::get('/user', [PersonalAccountController::class, 'user']);
+Route::post('/user/user_mo', [PersonalAccountController::class, 'userMo']);
+Route::post('/user/user_np', [PersonalAccountController::class, 'userNp']);
+Route::post('/user/user_hs', [PersonalAccountController::class, 'userHs']);
+Route::post('/user/user_ls', [PersonalAccountController::class, 'userLs']);
+
 Route::get('{page:url}', [PageController::class, 'index'])
     ->where('page', '.*')
     ->missing(function () {
