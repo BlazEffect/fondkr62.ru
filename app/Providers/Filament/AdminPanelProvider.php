@@ -36,8 +36,8 @@ class AdminPanelProvider extends PanelProvider
                 Pages\Dashboard::class,
             ])
             ->navigationGroups([
-                'Отчетность',
                 'Нормативно-правовая база',
+                'Отчетность',
                 'Новости'
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
