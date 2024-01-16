@@ -95,6 +95,13 @@
         height: 100px;
         border-radius: 8px;
 
+        // .main-questions__question > a
+        & > a {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
         // .main-questions__question-text
         &-text {
             font-size: 16px;

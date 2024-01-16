@@ -79,57 +79,67 @@
 
         <section class="main-questions">
             <div class="main-questions__question">
-                <img src="/assets/images/main/questions-block/question.png"
-                     alt="Вопрос"
-                     class="main-questions__question-icon">
+                <a href="/faq">
+                    <img src="/assets/images/main/questions-block/question.png"
+                         alt="Вопрос"
+                         class="main-questions__question-icon">
 
-                <div class="main-questions__question-text">
-                    Куда обращаться за<br>
-                    компенсацией расходов на<br>
-                    уплату взносана капремонт
-                </div>
+                    <div class="main-questions__question-text">
+                        Куда обращаться за<br>
+                        компенсацией расходов на<br>
+                        уплату взносана капремонт
+                    </div>
+                </a>
             </div>
             <div class="main-questions__question">
-                <img src="/assets/images/main/questions-block/question.png"
-                     alt="Вопрос"
-                     class="main-questions__question-icon">
+                <a href="/faq">
+                    <img src="/assets/images/main/questions-block/question.png"
+                         alt="Вопрос"
+                         class="main-questions__question-icon">
 
-                <div class="main-questions__question-text">
-                    Рекомендации по приёмке<br>
-                    работ по капремонту
-                </div>
+                    <div class="main-questions__question-text">
+                        Рекомендации по приёмке<br>
+                        работ по капремонту
+                    </div>
+                </a>
             </div>
             <div class="main-questions__question">
-                <img src="/assets/images/main/questions-block/question.png"
-                     alt="Вопрос"
-                     class="main-questions__question-icon">
+                <a href="/faq">
+                    <img src="/assets/images/main/questions-block/question.png"
+                         alt="Вопрос"
+                         class="main-questions__question-icon">
 
-                <div class="main-questions__question-text">
-                    Алгоритм первоочередных<br>
-                    действий в случае залития во<br>
-                    время или после капитального<br>
-                    ремонта крыши
-                </div>
+                    <div class="main-questions__question-text">
+                        Алгоритм первоочередных<br>
+                        действий в случае залития во<br>
+                        время или после капитального<br>
+                        ремонта крыши
+                    </div>
+                </a>
             </div>
             <div class="main-questions__question">
-                <img src="/assets/images/main/questions-block/question.png"
-                     alt="Вопрос"
-                     class="main-questions__question-icon">
+                <a href="/faq">
+                    <img src="/assets/images/main/questions-block/question.png"
+                         alt="Вопрос"
+                         class="main-questions__question-icon">
 
-                <div class="main-questions__question-text">
-                    Отборы подрядных организаций<br>
-                    для выполнения работ по<br>
-                    капитальному ремонту
-                </div>
+                    <div class="main-questions__question-text">
+                        Отборы подрядных организаций<br>
+                        для выполнения работ по<br>
+                        капитальному ремонту
+                    </div>
+                </a>
             </div>
             <div class="main-questions__question">
-                <img src="/assets/images/main/questions-block/question.png"
-                     alt="Вопрос"
-                     class="main-questions__question-icon">
+                <a href="/faq">
+                    <img src="/assets/images/main/questions-block/question.png"
+                         alt="Вопрос"
+                         class="main-questions__question-icon">
 
-                <div class="main-questions__question-text">
-                    Узнайте о своем доме
-                </div>
+                    <div class="main-questions__question-text">
+                        Узнайте о своем доме
+                    </div>
+                </a>
             </div>
             <div class="main-questions__question">
                 <div class="main-questions__question-button">
