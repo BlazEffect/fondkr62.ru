@@ -64,7 +64,7 @@
                 </a>
             </li>
             <li class="aside-menu--second__item">
-                <a href="" class="aside-menu--second__link">
+                <a href="/declaration/declaration/notification" class="aside-menu--second__link">
                     Оплата по квитанции
                 </a>
             </li>
