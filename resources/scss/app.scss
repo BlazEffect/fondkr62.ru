@@ -112,6 +112,48 @@
             }
         }
     }
+
+    // .main__dropdown
+    &__dropdown {
+        margin: 48px 0;
+        background-color: #fff;
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 6px;
+        position: relative;
+        font-size: 16px;
+
+        // .main__dropdown-content
+        &-content {
+            height: 0;
+            overflow: hidden;
+            transition: height .5s ease-out;
+        }
+
+        // .main__dropdown-button
+        &-button {
+            cursor: pointer;
+            width: 100%;
+            padding: 14px 0 14px 20px;
+        }
+
+        // .main__dropdown-button:after
+        &:after {
+            content: "";
+            width: 26px;
+            height: 17px;
+            position: absolute;
+            background-image: url("@/assets/images/owners-premises-operator/arrow-bottom.png");
+            background-repeat: no-repeat;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+        }
+    }
+}
+
+#dropdown-toggle {
+   display: none;
 }
 
 .overlay {

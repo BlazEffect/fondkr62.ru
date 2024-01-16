@@ -14,6 +14,18 @@ function DOMLoaded() {
         }
     });
 
+    const dropdownToggle = document.querySelector('#dropdown-toggle');
+    const dropdownContent = document.querySelector('.main__dropdown-content');
+    const dropdownItems = document.querySelector('.main__dropdown-content > *');
+
+    dropdownToggle.addEventListener('change', function () {
+        if (dropdownToggle.checked) {
+            dropdownContent.style.height = dropdownItems.offsetHeight + 'px';
+        } else {
+            dropdownContent.style.height = '0';
+        }
+    });
+
     if (document.documentElement.clientWidth < 991) {
         const overlay = document.querySelector('.overlay');
         const menu = document.querySelector(".header-bottom__menu");

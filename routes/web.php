@@ -6,6 +6,7 @@ use App\Http\Controllers\OwnersPremisesController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PersonalAccountController;
 use App\Http\Controllers\RegulatoryBaseController;
+use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ReviewsController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,11 @@ Route::resource('/reviews', ReviewsController::class)
     ->only(['index', 'store']);
 
 Route::get('/owners/requests', [OwnersPremisesController::class, 'index']);
+
+Route::get('/reports/operator', [ReportsController::class, 'index']);
+Route::post('/reports/operator/search_act_mo', [ReportsController::class, 'searchActMo']);
+Route::post('/reports/operator/search_act_np', [ReportsController::class, 'searchActNp']);
+Route::post('/reports/operator/search_act_hs', [ReportsController::class, 'searchActHs']);
 
 Route::get('/account', [PersonalAccountController::class, 'accountStatus']);
 Route::post('/account/getStatus', [PersonalAccountController::class, 'getStatus']);
