@@ -1,9 +1,5 @@
 @extends('app')
 
-@section('styles')
-    @vite('resources/scss/pages/reviews.scss')
-@endsection
-
 @section('breadcrumbs')
     {{ Breadcrumbs::render('owners-premises-operator') }}
 @endsection
