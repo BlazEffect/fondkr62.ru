@@ -9,6 +9,8 @@ export default defineConfig({
                 'resources/scss/app.scss',
                 'resources/js/app.js',
                 'resources/scss/pages/home.scss',
+                'resources/scss/pages/korrupcii.scss',
+                'resources/scss/pages/news.scss',
                 'resources/scss/pages/personal-account-email-receipts.scss',
                 'resources/scss/pages/personal-account-status.scss',
                 'resources/scss/pages/reviews.scss',
