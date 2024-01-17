@@ -60,6 +60,14 @@ return [
             'throw' => false,
         ],
 
+        'short-term-plan' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/short-term-plan'),
+            'url' => env('APP_URL').'/short-term-plan',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -88,6 +96,7 @@ return [
     'links' => [
         public_path('regulatory-base') => storage_path('app/public/regulatory-base'),
         public_path('annual-reporting') => storage_path('app/public/annual-reporting'),
+        public_path('short-term-plan') => storage_path('app/public/short-term-plan'),
         public_path('upload') => storage_path('app/public/upload'),
     ],
 
