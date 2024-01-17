@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -14,6 +15,26 @@ class Controller extends BaseController
 
     public function __construct()
     {
+        $news = News::all('section_name')
+            ->unique('section_name');
+        $newsChildren = [];
+        foreach ($news as $newsSection) {
+            // Temporary solution
+            $name = '';
+            if ($newsSection->section_name == 'fund') {
+                $name = 'Новости фонда';
+            } elseif ($newsSection->section_name == 'smi') {
+                $name = 'СМИ о нас';
+            } elseif ($newsSection->section_name == 'federalnews') {
+                $name = 'Федеральные новости';
+            }
+
+            $newsChildren[] = [
+                'title' => $name,
+                'link' => '/news/' . $newsSection->section_name,
+            ];
+        }
+
         // Temporary solution for menu display
         $this->vars['menu'] = [
             [
@@ -155,20 +176,7 @@ class Controller extends BaseController
             [
                 'title' => 'Новости',
                 'link' => '',
-                'children' => [
-                    [
-                        'title' => 'СМИ о нас',
-                        'link' => '',
-                    ],
-                    [
-                        'title' => 'Новости фонда',
-                        'link' => '',
-                    ],
-                    [
-                        'title' => 'Федеральные новости',
-                        'link' => '',
-                    ]
-                ]
+                'children' => $newsChildren
             ],
             [
                 'title' => 'Проведение каремонта',
