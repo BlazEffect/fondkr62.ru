@@ -38,7 +38,8 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups([
                 'Нормативно-правовая база',
                 'Отчетность',
-                'Новости'
+                'Новости',
+                'Проведение каремонта'
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->middleware([
