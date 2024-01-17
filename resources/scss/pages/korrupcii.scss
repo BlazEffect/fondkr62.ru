@@ -1,0 +1,25 @@
+.main {
+    // .main__page-wrapper
+    &__page-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .main-files__list
+    &-files__list {
+        margin: 10px 0;
+    }
+
+    h3 {
+        font-weight: bold;
+        padding: 5px 0 10px;
+    }
+
+    h4 {
+        font-weight: bold;
+    }
+
+    p {
+        padding-bottom: 8px;
+    }
+}

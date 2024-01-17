@@ -66,6 +66,11 @@ Breadcrumbs::for('find-personal-account', function (BreadcrumbTrail $trail) {
     $trail->push('Узнать свой лицевой счет');
 });
 
+Breadcrumbs::for('korrupcii', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Противодействие коррупции');
+});
+
 Breadcrumbs::for('custom-page', function (BreadcrumbTrail $trail, Page $page) {
     $trail->parent('home');
 

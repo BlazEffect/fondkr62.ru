@@ -54,6 +54,7 @@ Route::post('/user/user_np', [PersonalAccountController::class, 'userNp']);
 Route::post('/user/user_hs', [PersonalAccountController::class, 'userHs']);
 Route::post('/user/user_ls', [PersonalAccountController::class, 'userLs']);
 
+Route::get('/korrupcii', [PageController::class, 'korrupcii']);
 Route::get('{page:url}', [PageController::class, 'index'])
     ->where('page', '.*')
     ->missing(function () {

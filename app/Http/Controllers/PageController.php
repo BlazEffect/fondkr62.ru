@@ -12,4 +12,9 @@ class PageController extends Controller
 
         return view('pages.user-page', $this->vars);
     }
+
+    public function korrupcii()
+    {
+        return view('pages.korrupcii', $this->vars);
+    }
 }
