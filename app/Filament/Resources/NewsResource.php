@@ -22,7 +22,7 @@ class NewsResource extends Resource
     protected static ?string $pluralModelLabel = 'Новости';
     protected static ?string $breadcrumb = 'Новости';
     protected static bool $hasTitleCaseModelLabel = false;
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
     {
