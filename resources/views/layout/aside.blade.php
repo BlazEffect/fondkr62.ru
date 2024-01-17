@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="aside-menu--first__item">
-                <a href="" class="aside-menu--first__link">
+                <a href="/user" class="aside-menu--first__link">
                     Узнать свой лицевой счёт
                 </a>
             </li>
@@ -43,7 +43,7 @@
     <nav class="aside-menu--second" aria-label="second-menu">
         <ul class="aside-menu--second__list">
             <li class="aside-menu--second__item">
-                <a href="" class="aside-menu--second__link">
+                <a href="/korrupcii" class="aside-menu--second__link">
                     Противодействие<br>
                     коррупции
                 </a>
