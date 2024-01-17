@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\News;
 use App\Models\RegulatoryBase;
+use App\Models\ShortTermPlan;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -61,6 +62,15 @@ class Controller extends BaseController
             $newsChildren[] = [
                 'title' => $name,
                 'link' => '/news/' . $newsSection->section_name,
+            ];
+        }
+
+        $shortTermPlans = ShortTermPlan::all(['name', 'slug']);
+        $shortTermPlansChildren = [];
+        foreach ($shortTermPlans as $shortTermPlan) {
+            $shortTermPlansChildren[] = [
+                'title' => $shortTermPlan->name,
+                'link' => '/programs/urgent/' . $shortTermPlan->slug,
             ];
         }
 
@@ -167,7 +177,7 @@ class Controller extends BaseController
             ],
             [
                 'title' => 'Новости',
-                'link' => '',
+                'link' => $newsChildren[0]['link'],
                 'children' => $newsChildren
             ],
             [
@@ -181,28 +191,7 @@ class Controller extends BaseController
                     [
                         'title' => 'Краткосрочные планы',
                         'link' => '/programs/urgent',
-                        'children' => [
-                            [
-                                'title' => 'На 2017-2019 годы',
-                                'link' => '',
-                            ],
-                            [
-                                'title' => 'На 2015-2016 годы',
-                                'link' => '',
-                            ],
-                            [
-                                'title' => 'На 2014 год',
-                                'link' => '',
-                            ],
-                            [
-                                'title' => 'На 2020-2022 годы',
-                                'link' => '',
-                            ],
-                            [
-                                'title' => 'На 2023-2025 годы',
-                                'link' => '',
-                            ]
-                        ]
+                        'children' => $shortTermPlansChildren
                     ],
                     [
                         'title' => 'Выполнение работ',
