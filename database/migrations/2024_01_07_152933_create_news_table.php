@@ -11,13 +11,11 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->unsignedBigInteger('section_id')->nullable();
+            $table->string('section_name');
             $table->text('content');
             $table->boolean('active')->default(false);
             $table->integer('order')->default(0);
             $table->timestamps();
-
-            $table->foreign('section_id')->references('id')->on('news_sections')->onDelete('cascade');
         });
     }
 
