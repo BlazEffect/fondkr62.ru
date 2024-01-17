@@ -1,0 +1,11 @@
+.main {
+    // .main__page-wrapper
+    &__page-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    img {
+        width: 100%;
+    }
+}

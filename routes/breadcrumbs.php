@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\AnnualReporting;
+use App\Models\News;
 use App\Models\Page;
 use App\Models\RegulatoryBase;
 use Diglactic\Breadcrumbs\Breadcrumbs;
@@ -32,6 +33,30 @@ Breadcrumbs::for('annual-reporting', function (BreadcrumbTrail $trail, AnnualRep
     $trail->push('Ежегодная отчетность', '/reports/yearly');
 
     $trail->push($annualReporting->name);
+});
+
+Breadcrumbs::for('news', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Новости');
+});
+
+Breadcrumbs::for('news-section', function (BreadcrumbTrail $trail, News $news) {
+    $trail->parent('news');
+
+    // Temporary solution
+    if ($news->section_name === 'fund') {
+        $trail->push('Новости фонда', route('news-section', [$news->section_name]));
+    } elseif ($news->section_name === 'smi') {
+        $trail->push('СМИ о нас', route('news-section', [$news->section_name]));
+    } elseif ($news->section_name === 'federalnews') {
+        $trail->push('Федеральные новости', route('news-section', [$news->section_name]));
+    }
+});
+
+Breadcrumbs::for('news-item', function (BreadcrumbTrail $trail, News $news) {
+    $trail->parent('news-section', $news);
+
+    $trail->push($news->name);
 });
 
 Breadcrumbs::for('reviews', function (BreadcrumbTrail $trail) {

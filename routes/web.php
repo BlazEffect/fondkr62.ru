@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnnualReportingController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OwnersPremisesController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PersonalAccountController;
@@ -31,6 +32,11 @@ Route::get('/reports/yearly/{annualReporting:slug}', [AnnualReportingController:
         abort(404);
     })
     ->name('annual-reporting');
+
+Route::get('/news/{newsSection}', [NewsController::class, 'index'])
+    ->name('news-section');
+Route::get('/news/{newsSection}/{newsSlug}', [NewsController::class, 'show'])
+    ->name('news');
 
 Route::resource('/reviews', ReviewsController::class)
     ->only(['index', 'store']);
