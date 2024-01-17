@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\RegulatoryBase;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -15,6 +16,34 @@ class Controller extends BaseController
 
     public function __construct()
     {
+        $regulatoryBases = RegulatoryBase::all(['name', 'slug', 'section_name'])
+            ->groupBy('section_name');
+        $regulatoryBasesSectionChildren = [];
+        foreach ($regulatoryBases as $regulatoryBaseSection => $regulatoryBase) {
+            $regulatoryBaseItems = [];
+
+            // Temporary solution
+            $name = '';
+            if ($regulatoryBaseSection === 'federal') {
+                $name = 'Федеральное законодательство';
+            } elseif($regulatoryBaseSection === 'regional') {
+                $name = 'Региональное законодательство';
+            }
+
+            foreach ($regulatoryBase as $items) {
+                $regulatoryBaseItems[] = [
+                    'title' => $items->name,
+                    'link' => '/bazaprav/' . $regulatoryBaseSection . '/' . $items->slug,
+                ];
+            }
+
+            $regulatoryBasesSectionChildren[] = [
+                'title' => $name,
+                'link' => '/bazaprav/' . $regulatoryBaseSection,
+                'children' => $regulatoryBaseItems,
+            ];
+        }
+
         $news = News::all('section_name')
             ->unique('section_name');
         $newsChildren = [];
@@ -78,44 +107,7 @@ class Controller extends BaseController
             [
                 'title' => 'Нормативно-правовая база',
                 'link' => '/bazaprav',
-                'children' => [
-                    [
-                        'title' => 'Федеральное законодательство',
-                        'link' => '/bazaprav/federal',
-                        'children' => [
-                            [
-                                'title' => 'Законы',
-                                'link' => '/bazaprav/federal/zakony',
-                            ],
-                            [
-                                'title' => 'Приказы',
-                                'link' => '/bazaprav/federal/prikazy',
-                            ],
-                            [
-                                'title' => 'Постановления',
-                                'link' => '/bazaprav/federal/postanovleniia',
-                            ],
-                            [
-                                'title' => 'Регламенты и рекомендации',
-                                'link' => '/bazaprav/federal/reglamenty-i-rekomendacii',
-                            ]
-                        ]
-                    ],
-                    [
-                        'title' => 'Региональное законодательство',
-                        'link' => '/bazaprav/regional',
-                        'children' => [
-                            [
-                                'title' => 'Законы',
-                                'link' => '/bazaprav/regional/zakony',
-                            ],
-                            [
-                                'title' => 'Постановления',
-                                'link' => '/bazaprav/regional/postanovleniia',
-                            ]
-                        ]
-                    ]
-                ]
+                'children' => $regulatoryBasesSectionChildren
             ],
             [
                 'title' => 'Отчётность',
