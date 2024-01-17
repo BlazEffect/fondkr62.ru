@@ -13,7 +13,7 @@
                 @foreach($shortTermPlan->documents as $document)
                     <div class="main-files__item">
                         <a class="main-files__link"
-                           href="/short-term-plan/documents/{{ $document['document'] }}"
+                           href="/short-term-plan/{{ $document['document'] }}"
                            target="_blank">
                             {{ $document['name'] }}
                         </a>
@@ -29,7 +29,7 @@
                         @foreach($shortTermPlan['early-documents'] as $earlyDocument)
                             <div class="main-files__item">
                                 <a class="main-files__link"
-                                   href="/short-term-plan/documents/{{ $earlyDocument['document'] }}"
+                                   href="/short-term-plan/{{ $earlyDocument['document'] }}"
                                    target="_blank">
                                     {{ $earlyDocument['name'] }}
                                 </a>
