@@ -4,6 +4,7 @@ use App\Models\AnnualReporting;
 use App\Models\News;
 use App\Models\Page;
 use App\Models\RegulatoryBase;
+use App\Models\ShortTermPlan;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
@@ -65,6 +66,23 @@ Breadcrumbs::for('news-item', function (BreadcrumbTrail $trail, News $news) {
     $trail->parent('news-section', $news);
 
     $trail->push($news->name);
+});
+
+Breadcrumbs::for('programs', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Проведение капремонта', '/programs/region');
+});
+
+Breadcrumbs::for('short-term-plan', function (BreadcrumbTrail $trail) {
+    $trail->parent('programs');
+
+    $trail->push('Краткосрочные планы', '/programs/urgent');
+});
+
+Breadcrumbs::for('short-term-plan-item', function (BreadcrumbTrail $trail, ShortTermPlan $shortTermPlan) {
+    $trail->parent('short-term-plan');
+
+    $trail->push($shortTermPlan->name);
 });
 
 Breadcrumbs::for('reviews', function (BreadcrumbTrail $trail) {

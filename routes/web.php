@@ -9,6 +9,7 @@ use App\Http\Controllers\PersonalAccountController;
 use App\Http\Controllers\RegulatoryBaseController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\ShortTermPlanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,6 +62,13 @@ Route::post('/user/user_mo', [PersonalAccountController::class, 'userMo']);
 Route::post('/user/user_np', [PersonalAccountController::class, 'userNp']);
 Route::post('/user/user_hs', [PersonalAccountController::class, 'userHs']);
 Route::post('/user/user_ls', [PersonalAccountController::class, 'userLs']);
+
+Route::get('/programs/urgent', [ShortTermPlanController::class, 'index']);
+Route::get('/programs/urgent/{shortTermPlan:slug}', [ShortTermPlanController::class, 'show'])
+    ->missing(function () {
+        abort(404);
+    })
+    ->name('short-term-plan.show');
 
 Route::get('/korrupcii', [PageController::class, 'korrupcii']);
 Route::get('{page:url}', [PageController::class, 'index'])
