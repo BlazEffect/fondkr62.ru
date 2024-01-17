@@ -1,21 +1,20 @@
 @extends('app')
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('regulatory-base-item', $regulatoryBase) }}
+    {{ Breadcrumbs::render('regulatory-base-section', $regulatoryBases->first()) }}
 @endsection
 
 @section('main')
     <main class="main">
-        <h2 class="main__page-heading">{{ $regulatoryBase->name }}</h2>
+        <h2 class="main__page-heading">{{ $regulatoryBasesSection }}</h2>
 
         <div class="main__page-wrapper">
             <div class="main-files__list">
-                @foreach($regulatoryBase->documents as $document)
+                @foreach($regulatoryBases as $regulatoryBase)
                     <div class="main-files__item">
                         <a class="main-files__link"
-                           href="/regulatory-base/{{ $document['document'] }}"
-                           target="_blank">
-                            {{ $document['name'] }}
+                           href="/bazaprav/{{ $regulatoryBase->section_name }}/{{ $regulatoryBase->slug }}">
+                            {{ $regulatoryBase->name }}
                         </a>
                     </div>
                 @endforeach

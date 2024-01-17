@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/bazaprav/{regulatoryBaseSection}', [RegulatoryBaseController::class, 'index'])
+    ->name('regulatory-base-section');
 Route::get('/bazaprav/{regulatoryBaseSection}/{regulatoryBaseSlug}', [RegulatoryBaseController::class, 'show'])
     ->name('regulatory-base');
 

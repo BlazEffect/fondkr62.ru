@@ -11,17 +11,25 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
     $trail->push('Главная', route('home'));
 });
 
-Breadcrumbs::for('regulatory-base', function (BreadcrumbTrail $trail, RegulatoryBase $regulatoryBase) {
+Breadcrumbs::for('regulatory-base', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
 
     $trail->push('Нормативно-правовая база', '/bazaprav');
+});
+
+Breadcrumbs::for('regulatory-base-section', function (BreadcrumbTrail $trail, RegulatoryBase $regulatoryBase) {
+    $trail->parent('regulatory-base');
 
     // Temporary solution
     if ($regulatoryBase->section_name === 'federal') {
         $trail->push('Федеральное законодательство', '/bazaprav/federal');
-    } else {
+    } elseif($regulatoryBase->section_name === 'regional') {
         $trail->push('Региональное законодательство', '/bazaprav/regional');
     }
+});
+
+Breadcrumbs::for('regulatory-base-item', function (BreadcrumbTrail $trail, RegulatoryBase $regulatoryBase) {
+    $trail->parent('regulatory-base-section', $regulatoryBase);
 
     $trail->push($regulatoryBase->name);
 });
