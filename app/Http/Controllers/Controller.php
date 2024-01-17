@@ -46,7 +46,8 @@ class Controller extends BaseController
         }
 
         $news = News::all('section_name')
-            ->unique('section_name');
+            ->unique('section_name')
+            ->sortByDesc('section_name');
         $newsChildren = [];
         foreach ($news as $newsSection) {
             // Temporary solution
