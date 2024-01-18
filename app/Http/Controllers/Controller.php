@@ -196,7 +196,7 @@ class Controller extends BaseController
                     ],
                     [
                         'title' => 'Выполнение работ',
-                        'link' => '',
+                        'link' => '/base/house',
                     ],
                     [
                         'title' => 'Реестр квалифицированных подрядчиков',
