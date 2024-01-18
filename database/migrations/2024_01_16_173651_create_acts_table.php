@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('acts', function (Blueprint $table) {
             $table->string('Id', 40)->nullable();
-            $table->string('IdContractor', 30);
+            $table->string('IdContract', 30);
             $table->timestamp('Date', 0);
             $table->integer('Sum')->nullable();
             $table->string('CodeHouse');
