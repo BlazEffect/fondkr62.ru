@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AnnualReportingController;
+use App\Http\Controllers\FindHouseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OwnersPremisesController;
@@ -69,6 +70,10 @@ Route::get('/programs/urgent/{shortTermPlan:slug}', [ShortTermPlanController::cl
         abort(404);
     })
     ->name('short-term-plan.show');
+
+Route::get('/base/house', [FindHouseController::class, 'index']);
+Route::post('/base/house/getStreets/{codeMunicipality}', [FindHouseController::class, 'getStreets']);
+Route::post('/base/house/getHouse/{codeHouse}', [FindHouseController::class, 'getHouse']);
 
 Route::get('/korrupcii', [PageController::class, 'korrupcii']);
 Route::get('{page:url}', [PageController::class, 'index'])

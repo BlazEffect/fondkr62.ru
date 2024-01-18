@@ -1,0 +1,31 @@
+.main {
+    // .main__page-wrapper
+    &__page-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .main-selectors
+    &-selectors {
+        // .main-selectors__municipalities-selector
+        &__municipalities-selector {
+            margin-bottom: 20px;
+        }
+
+        // .main-selectors__streets-selector
+        &__streets-selector {
+            display: none;
+            margin-bottom: 20px;
+        }
+    }
+
+    // .main__house-info
+    &__house-info {
+        display: none;
+    }
+
+    // .main__footer-text
+    &__footer-text {
+        margin-top: 50px;
+    }
+}

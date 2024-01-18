@@ -117,6 +117,12 @@ Breadcrumbs::for('find-personal-account', function (BreadcrumbTrail $trail) {
     $trail->push('Узнать свой лицевой счет');
 });
 
+Breadcrumbs::for('find-house', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+
+    $trail->push('Узнайте о своем доме');
+});
+
 Breadcrumbs::for('korrupcii', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Противодействие коррупции');
