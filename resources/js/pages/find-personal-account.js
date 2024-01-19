@@ -206,6 +206,8 @@ function init_choose_mo_2() {
                 '<input class="kv_input_km" style="font-size: 1.2em; padding: .3vw .5vw; width: 150px;" type="text" rel="0" id="choose_mo_5" autocomplete="off" value="" alt="" placeholder="Комната">' +
                 '<div id="find_ls" style="background: red; color: white; font-size: 1.2em; width: 350px; text-align: center; cursor: pointer; padding: .3vw 0; margin-top: 10px;">Узнать</div>' +
                 '</div>');
+
+            init_find_ls();
         });
     });
 }
