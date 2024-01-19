@@ -505,12 +505,12 @@ class PersonalAccountController extends Controller
 
     public function userLs(Request $request)
     {
-        $code_house = $request->get('ch');
+        $codeHouse = $request->get('ch');
         $kv = $request->get('kv');
         $kom = $request->get('kom');
 
         $flatsFull = FlatsFull::query()
-            ->where('Lso', $code_house)
+            ->whereRaw('LEFT(CAST("Lso" as varchar), 9) = ?', [$codeHouse])
             ->where('Kv', $kv)
             ->where('Kom', $kom)
             ->where('NotNach', 0)
