@@ -43,7 +43,13 @@ dda_shown.forEach((element) => {
             if (request.readyState === 4 && request.status === 200) {
                 document.querySelector('.find_ls').insertAdjacentHTML("beforeend", request.response);
 
-                init_choose_mo_0();
+                const id = element.getAttribute('href').replace('#', '');
+
+                if (id == 28 || id == 36 || id == 37 || id == 38) {
+                    init_choose_mo_1();
+                } else {
+                    init_choose_mo_0();
+                }
             }
         });
         request.send(params);
@@ -202,8 +208,6 @@ function init_choose_mo_2() {
                 '</div>');
         });
     });
-
-    setTimeout(init_find_ls, 1000);
 }
 
 function init_find_ls() {
