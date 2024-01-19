@@ -11,6 +11,7 @@ use App\Http\Controllers\RegulatoryBaseController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\ShortTermPlanController;
+use App\Http\Controllers\WorkPerformedController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,6 +71,8 @@ Route::get('/programs/urgent/{shortTermPlan:slug}', [ShortTermPlanController::cl
         abort(404);
     })
     ->name('short-term-plan.show');
+
+Route::get('/programs/workperformed', [WorkPerformedController::class, 'index']);
 
 Route::get('/base/house', [FindHouseController::class, 'index']);
 Route::post('/base/house/getStreets/{codeMunicipality}', [FindHouseController::class, 'getStreets']);
