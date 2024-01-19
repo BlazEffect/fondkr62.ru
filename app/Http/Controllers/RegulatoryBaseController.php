@@ -24,7 +24,7 @@ class RegulatoryBaseController extends Controller
             }
             $this->vars['regulatoryBasesSection'] = $name;
 
-            return view('pages.regulatory-base-section', $this->vars);
+            return view('pages.regulatory-base.regulatory-base-section', $this->vars);
         }
 
         abort(404);
@@ -41,7 +41,7 @@ class RegulatoryBaseController extends Controller
         if ($regulatoryBase) {
             $this->vars['regulatoryBase'] = $regulatoryBase;
 
-            return view('pages.regulatory-base', $this->vars);
+            return view('pages.regulatory-base.regulatory-base', $this->vars);
         }
 
         abort(404);

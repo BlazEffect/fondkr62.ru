@@ -141,7 +141,7 @@ class WorkPerformedController extends Controller
 
         $this->vars["html"] = $html;
 
-        return view('pages.work-performed', $this->vars);
+        return view('pages.major-repairs.work-performed', $this->vars);
     }
 
     private function getElementsHouses()

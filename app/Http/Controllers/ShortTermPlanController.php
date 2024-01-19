@@ -10,13 +10,13 @@ class ShortTermPlanController extends Controller
     {
         $this->vars['shortTermPlans'] = ShortTermPlan::all(['name', 'slug']);
 
-        return view('pages.short-term-plan-section', $this->vars);
+        return view('pages.major-repairs.short-term-plan-section', $this->vars);
     }
 
     public function show(ShortTermPlan $shortTermPlan)
     {
         $this->vars['shortTermPlan'] = $shortTermPlan;
 
-        return view('pages.short-term-plan', $this->vars);
+        return view('pages.major-repairs.short-term-plan', $this->vars);
     }
 }

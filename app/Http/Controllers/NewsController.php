@@ -26,7 +26,7 @@ class NewsController extends Controller
             }
             $this->vars['newsSectionName'] = $name;
 
-            return view('pages.news-section', $this->vars);
+            return view('pages.news.news-section', $this->vars);
         }
 
         abort(404);
@@ -41,7 +41,7 @@ class NewsController extends Controller
         if ($news) {
             $this->vars['news'] = $news;
 
-            return view('pages.news', $this->vars);
+            return view('pages.news.news', $this->vars);
         }
 
         abort(404);

@@ -10,6 +10,6 @@ class AnnualReportingController extends Controller
     {
         $this->vars['annualReporting'] = $annualReporting;
 
-        return view('pages.annual-reporting', $this->vars);
+        return view('pages.reports.annual-reporting', $this->vars);
     }
 }

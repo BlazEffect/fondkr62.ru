@@ -17,7 +17,7 @@ class ReportsController extends Controller
             ->orderBy('Region')
             ->get();
 
-        return view('pages.owners-premises-operator', $this->vars);
+        return view('pages.reports.owners-premises-operator', $this->vars);
     }
 
     public function searchActMo(Request $request)
