@@ -28,4 +28,13 @@
     &__footer-text {
         margin-top: 50px;
     }
+
+    // .main__dropdown-content
+    &__dropdown-content {
+        margin: 0 20px;
+    }
+}
+
+#dropdown-toggle:checked + .main__dropdown-content {
+    margin: 0 20px 15px;
 }
