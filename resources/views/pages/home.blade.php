@@ -35,7 +35,7 @@
             </div>
 
             <div class="main-cards__card">
-                <a href="/declaration/declaration/KI21FGc95G0" target="_blank">
+                <a href="/declaration/declaration/KI21FGc95G0">
                     <img src="/assets/images/main/cards-block/contact.png"
                          alt="Приглашаем на работу"
                          class="main-cards__card-icon">
