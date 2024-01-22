@@ -85,11 +85,6 @@ export default function addDropDowns() {
     const dropdownContent = document.querySelector('.main__dropdown-content');
     const dropdownItems = document.querySelector('.main__dropdown-content > *');
 
-    console.log(dropdownToggle);
-    console.log(dropdownContent);
-    console.log(dropdownItems);
-    console.log(dropdownItems.offsetHeight);
-
     if (dropdownToggle && dropdownContent && dropdownItems) {
         console.log('test');
 
