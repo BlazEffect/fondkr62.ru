@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('styles')
-    @vite('/node_modules/slim-select/dist/slimselect.css')
+    @vite('node_modules/slim-select/dist/slimselect.css')
     @vite('resources/scss/pages/find-house.scss')
 @endsection
 

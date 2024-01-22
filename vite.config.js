@@ -22,6 +22,7 @@ export default defineConfig({
                 'resources/js/pages/owners-premises-operator.js',
                 'resources/js/pages/personal-account-status.js',
                 'resources/js/pages/work-performed.js',
+                'node_modules/slim-select/dist/slimselect.css',
             ],
             refresh: true,
         }),
