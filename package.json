@@ -20,6 +20,7 @@
         "ie 11"
     ],
     "dependencies": {
+        "@fancyapps/ui": "^5.0.33",
         "slim-select": "^2.8.1"
     }
 }
