@@ -47,7 +47,7 @@
             </div>
 
             <div class="main-cards__card">
-                <a href="/programs/workperformed" target="_blank">
+                <a href="/base/house">
                     <img src="/assets/images/main/cards-block/question.png"
                          alt="Предложение о проведении"
                         class="main-cards__card-icon">
