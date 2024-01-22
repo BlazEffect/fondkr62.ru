@@ -1,3 +1,7 @@
+@use "sass:math";
+@import "../base/mixins";
+@import "../base/variables";
+
 .aside {
     float: right;
     margin-top: 72px;
@@ -24,6 +28,10 @@
             padding-left: 40px;
             line-height: 24px;
             padding-right: 20px;
+
+            @media (max-width: $laptop) {
+                padding-left: 30px;
+            }
 
             // .aside-menu--first__item
             &__item {
@@ -52,6 +60,10 @@
             padding-left: 60px;
             line-height: 24px;
             padding-right: 20px;
+
+            @media (max-width: $laptop) {
+                padding-left: 30px;
+            }
 
             // .aside-menu--second__item
             &__item {
