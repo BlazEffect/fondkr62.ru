@@ -19,6 +19,7 @@ export default defineConfig({
                 'resources/js/pages/completeAddress.js',
                 'resources/js/pages/find-house.js',
                 'resources/js/pages/find-personal-account.js',
+                'resources/js/pages/home.js',
                 'resources/js/pages/owners-premises-operator.js',
                 'resources/js/pages/personal-account-status.js',
                 'resources/js/pages/work-performed.js',
