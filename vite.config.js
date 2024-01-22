@@ -32,6 +32,7 @@ export default defineConfig({
         base: '/',
         alias: {
             '@': path.resolve(__dirname, 'public'),
+            '~': path.resolve(__dirname, 'node_modules'),
         },
     },
     css: {
