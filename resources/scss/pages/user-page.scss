@@ -1,3 +1,7 @@
+@use "sass:math";
+@import "../base/mixins";
+@import "../base/variables";
+
 .main {
     // .main__page
     &__page {
@@ -27,6 +31,16 @@
             th {
                 background-color: #fff;
                 font-family: "Inter-SemiBold";
+            }
+
+            img {
+                @media (max-width: $laptop) {
+                    width: 70%;
+                }
+
+                @media (max-width: $tablet) {
+                    width: 100%;
+                }
             }
         }
     }
