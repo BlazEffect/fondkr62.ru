@@ -18,6 +18,10 @@
         @media (max-width: $mobile) {
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
+
+        @media (max-width: $mobileSmall) {
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        }
     }
 
     // .main-cards__card
