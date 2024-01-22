@@ -61,15 +61,25 @@
     // .main-about-me
     &-about-me {
         margin-top: 52px;
-        display: flex;
         background-color: #fff;
         padding: 27px 27px 29px 27px;
-        gap: 25px;
-        align-items: center;
         border-radius: 4px;
+        display: flex;
 
-        @media (max-width: $mobile) {
-            flex-direction: column;
+        & .f-carousel {
+            width: 100%;
+            --f-button-next-pos: -32px;
+            --f-button-prev-pos: -32px;
+
+            &__slide {
+                display: flex;
+                gap: 25px;
+                align-items: center;
+
+                @media (max-width: $mobile) {
+                    flex-direction: column;
+                }
+            }
         }
 
         // .main-about-me__content-heading

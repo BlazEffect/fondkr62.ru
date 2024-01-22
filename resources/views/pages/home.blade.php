@@ -62,18 +62,38 @@
         </section>
 
         <section class="main-about-me">
-            <img src="/assets/images/main/about-me-block/person.png"
-                 alt="Васин Сергей Владимирович"
-                 class="main-about-me__photo">
+            <div class="f-carousel" id="about-me-carousel">
+                <div class="f-carousel__slide">
+                    <img src="/assets/images/main/about-me-block/person.png"
+                         alt="Васин Сергей Владимирович"
+                         class="main-about-me__photo">
 
-            <div class="main-about-me__content">
-                <h4 class="main-about-me__content-heading">Уважаемые жители Рязани и области!</h4>
+                    <div class="main-about-me__content">
+                        <h4 class="main-about-me__content-heading">Уважаемые жители Рязани и области!</h4>
 
-                <p class="main-about-me__content-text">
-                    Я, Васин Сергей Владимирович, первый заместитель генерального директора – директор<br>
-                    по безопасности, режиму и противодействию коррупции фонда капитального ремонта<br>
-                    Рязанской области, хотел бы обратиться к вам с предложением. Подробнее...
-                </p>
+                        <p class="main-about-me__content-text">
+                            Я, Васин Сергей Владимирович, первый заместитель генерального директора – директор<br>
+                            по безопасности, режиму и противодействию коррупции фонда капитального ремонта<br>
+                            Рязанской области, хотел бы обратиться к вам с предложением. Подробнее...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="f-carousel__slide">
+                    <img src="/assets/images/main/about-me-block/person.png"
+                         alt="Васин Сергей Владимирович"
+                         class="main-about-me__photo">
+
+                    <div class="main-about-me__content">
+                        <h4 class="main-about-me__content-heading">Уважаемые жители Рязани и области!</h4>
+
+                        <p class="main-about-me__content-text">
+                            Я, Васин Сергей Владимирович, первый заместитель генерального директора – директор<br>
+                            по безопасности, режиму и противодействию коррупции фонда капитального ремонта<br>
+                            Рязанской области, хотел бы обратиться к вам с предложением. Подробнее...
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -148,4 +168,8 @@
             </div>
         </section>
     </main>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/pages/home.js')
 @endsection
