@@ -45,8 +45,8 @@
                     padding-top: 52px;
                 }
 
-                // .aside-menu--first__item:nth-child(2)
-                &:nth-child(2) {
+                // .aside-menu--first__item:hover
+                &:hover {
                    text-decoration: underline;
                 }
             }
@@ -72,8 +72,12 @@
                 // .aside-menu--second__item:first-child
                 &:first-child {
                     padding-top: 52px;
-                    text-decoration: underline;
                     padding-bottom: 32px;
+                }
+
+                // .aside-menu--second__item:hover
+                &:hover {
+                    text-decoration: underline;
                 }
             }
         }
