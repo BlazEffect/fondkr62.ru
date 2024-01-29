@@ -13,6 +13,10 @@
         <h2 class="main__page-heading">Отзывы</h2>
 
         <div class="main__page-wrapper">
+            @if(session()->has('message'))
+                <div>{{ session()->get('message') }}</div>
+            @endif
+
             <form method="post" action="{{ route('reviews.store') }}" class="main-review-form">
                 @csrf
 

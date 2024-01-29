@@ -1,4 +1,8 @@
 .main {
+    &__page-wrapper > div {
+        margin-bottom: 15px;
+    }
+
     // .main-review-form
     &-review-form {
         display: flex;
