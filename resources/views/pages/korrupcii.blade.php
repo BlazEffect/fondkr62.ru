@@ -292,76 +292,108 @@
             <p>Информация о персональных данных граждан, направивших обращение в электронную приемную, хранится и
                 обрабатывается с соблюдением требований Федерального закона от 27.07.2006 №152-ФЗ «О персональных
                 данных».</p>
-            <form enctype="multipart/form-data" border="1" action="" method="post">
-                <input id="simple_check" name="secret_code" type="hidden" value="" class="feedbackInput">
-                <table id="tableFeedback" cellpadding="0">
-                    <tbody>
-                    <tr>
-                        <td width="22%">Фамилия<span>*</span></td>
-                        <td align="right"><input name="second_name" size="65" type="text" value=""
-                                                 class="feedbackInput"></td>
-                    </tr>
-                    <tr>
-                        <td width="22%">Имя<span>*</span></td>
-                        <td align="right"><input name="first_name" size="65" type="text" value="" class="feedbackInput">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="22%">Отчество (при наличии)</td>
-                        <td align="right"><input name="third_name" size="65" type="text" value="" class="feedbackInput">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="22%">Электронный адрес<span>*</span></td>
-                        <td align="right"><input name="email" size="65" type="text" value="" class="feedbackInput"></td>
-                    </tr>
-                    <tr>
-                        <td width="22%">Адрес</td>
-                        <td align="right">
-                            <input name="adres" type="text" size="65" value="" class="feedbackInput"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Тема обращения<span>*</span></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><input name="theme" type="text" size="65" value="" class="feedbackTheme"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Текст обращения<span>*</span></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><textarea name="detail_text" type="text" rows="7" style="width: 100%;"
-                                                  class="feedbackTextarea"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><br><br>Согласны ли вы, что ваше обращение может быть опубликовано на
-                            официальном сайте?
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="radio" name="public_agree" value="2" checked="">Да<input type="radio"
-                                                                                                  name="public_agree"
-                                                                                                  value="3">Нет
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: center;">
-                            <label style="display: block; padding-bottom: 5px;"><input type="checkbox"
-                                                                                       id="checkPersonal"
-                                                                                       name="personal_data"
-                                                                                       onclick="chkOne_onclick(this);">
-                                Я подтверждаю свое согласие на обработку своих персональных данных</label>
-                            <input type="submit" id="txtOne" class="inputBtn" value="Отправить обращение"
-                                   disabled="disabled">
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+
+            <div class="main-korrupcii-form-errors">
+                @if (count($errors) > 0)
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+            </div>
+
+            @if(session()->has('message'))
+                <div>{{ session()->get('message') }}</div>
+            @endif
+
+            <form action="{{ route('korrupcii.store') }}" class="main-korrupcii-form" method="post">
+                @csrf
+
+                <div class="main-korrupcii-form__control">
+                    <label class="main-korrupcii-form__label" for="second_name">Фамилия:*</label>
+                    <input class="main-korrupcii-form__input"
+                           type="text"
+                           name="second_name"
+                           id="second_name"
+                           placeholder="Фамилия">
+                </div>
+
+                <div class="main-korrupcii-form__control">
+                    <label class="main-korrupcii-form__label" for="first_name">Имя:*</label>
+                    <input class="main-korrupcii-form__input"
+                           type="text"
+                           name="first_name"
+                           id="first_name"
+                           placeholder="Имя">
+                </div>
+
+                <div class="main-korrupcii-form__control">
+                    <label class="main-korrupcii-form__label" for="third_name">Отчество (при наличии):</label>
+                    <input class="main-korrupcii-form__input"
+                           type="text"
+                           name="third_name"
+                           id="third_name"
+                           placeholder="Отчество (при наличии)">
+                </div>
+
+                <div class="main-korrupcii-form__control">
+                    <label class="main-korrupcii-form__label" for="email">Электронный адрес:*</label>
+                    <input class="main-korrupcii-form__input"
+                           type="text"
+                           name="email"
+                           id="email"
+                           placeholder="Электронный адрес">
+                </div>
+
+                <div class="main-korrupcii-form__control">
+                    <label class="main-korrupcii-form__label" for="adres">Адрес:</label>
+                    <input class="main-korrupcii-form__input"
+                           type="text"
+                           name="adres"
+                           id="adres"
+                           placeholder="Адрес">
+                </div>
+
+                <div class="main-korrupcii-form__control">
+                    <label class="main-korrupcii-form__label" for="theme">Тема обращения:*</label>
+                    <input class="main-korrupcii-form__input"
+                           type="text"
+                           name="theme"
+                           id="theme"
+                           placeholder="Тема обращения">
+                </div>
+
+                <div class="main-korrupcii-form__control">
+                    <label class="main-korrupcii-form__label" for="detail_text">Текст обращения:*</label>
+                    <textarea class="main-korrupcii-form__input"
+                              name="detail_text"
+                              id="detail_text"
+                              placeholder="Текст обращения"></textarea>
+                </div>
+
+                <div class="main-korrupcii-form__control">
+                    <label class="main-korrupcii-form__label">Согласны ли вы, что ваше обращение может быть опубликовано на официальном сайте?
+                        <input type="radio" name="public_agree" value="2" checked="">Да
+                        <input type="radio" name="public_agree" value="3">Нет
+                    </label>
+                </div>
+
+                <label>
+                    <input type="checkbox" id="checkPersonal">
+                    Я подтверждаю свое согласие на обработку своих персональных данных
+                </label>
+
+                <div class="main-korrupcii-form__control">
+                    <button type="submit" class="main-korrupcii-form__button" disabled="disabled">
+                        Отправить обращение
+                    </button>
+                </div>
             </form>
         </div>
     </main>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/pages/korrupcii.js')
 @endsection

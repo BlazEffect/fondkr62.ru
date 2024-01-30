@@ -22,4 +22,80 @@
     p {
         padding-bottom: 8px;
     }
+
+    // .main-korrupcii-form
+    &-korrupcii-form {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #000000;
+        border-radius: 6px;
+        padding: 40px 60px 40px 40px;
+        margin-top: 10px;
+
+        // .main-korrupcii-form__control
+        &__control {
+            display: flex;
+            flex-direction: column;
+
+            // .main-review-form__control:not(:last-child)
+            &:not(:last-child) {
+                margin-bottom: 25px;
+            }
+
+            // .main-review-form__control:nth-child(3)
+            &:nth-child(4) {
+                margin-bottom: 32px;
+            }
+
+            // .main-review-form__control:last-child
+            &:last-child {
+                flex-direction: row-reverse;
+            }
+        }
+
+        // .main-korrupcii-form__label
+        &__label {
+            font-family: "Inter-Medium";
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        // .main-korrupcii-form__input
+        &__input {
+            font-size: 16px;
+            border-radius: 6px;
+            padding: 13px 0 13px 28px;
+
+            // .main-review-form__input::placeholder
+            &::placeholder {
+                font-family: "Inter-SemiBold";
+                color: #00000033;
+            }
+        }
+
+        // .main-korrupcii-form__button
+        &__button {
+            padding: 8px 32px;
+            background-color: #3D9DF7;
+            font-family: "Inter-SemiBold";
+            font-size: 16px;
+            color: #fff;
+            border-radius: 8px;
+
+            &:disabled {
+                cursor: not-allowed;
+                background-color: rgba(61, 157, 247, 0.6);
+            }
+        }
+
+        // .main-korrupcii-form__errors
+        &-errors {
+            color: #fd2f2f;
+        }
+    }
+}
+
+#detail_text {
+    resize: vertical;
+    height: 180px;
 }
