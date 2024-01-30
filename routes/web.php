@@ -79,6 +79,7 @@ Route::post('/base/house/getStreets/{codeMunicipality}', [FindHouseController::c
 Route::post('/base/house/getHouse/{codeHouse}', [FindHouseController::class, 'getHouse']);
 
 Route::get('/korrupcii', [PageController::class, 'korrupcii']);
+Route::post('/korrupcii', [PageController::class, 'korrupciiStore'])->name('korrupcii.store');
 Route::get('{page:url}', [PageController::class, 'index'])
     ->where('page', '.*')
     ->missing(function () {
