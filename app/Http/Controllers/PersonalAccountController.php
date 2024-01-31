@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\EmailReceipt;
 use App\Models\FlatsFull;
 use App\Models\House;
 use App\Models\Street;
@@ -281,6 +282,91 @@ class PersonalAccountController extends Controller
     public function emailReceipts()
     {
         return view('pages.personal-account-email-receipts', $this->vars);
+    }
+
+    public function emailReceiptsStore(Request $request)
+    {
+        $data = $request->all();
+
+        $messages = [
+            'email.required' => 'Электронный адрес является обязательным полем.',
+            'email.email' => 'Неверный формат электронной почты.',
+            'personal-account.required' => 'Лицевой счет является обязательным полем.',
+            'personal-account.digits' => 'Лицевой счет должен иметь :digits цифр.',
+            'userfile.required' => 'Файл является обязательным полем.',
+        ];
+
+        $validator = Validator::make($data, [
+            'email' => 'required|email',
+            'personal-account' => 'required|digits:16',
+            'userfile' => 'required|file'
+        ], $messages);
+
+        $validator->after(function ($validator) use ($data) {
+            if (isset($data['agree']) && $data['agree'] !== 'on') {
+                $validator->errors()->add(
+                    'agree',
+                    'Дайте согласие на обработку персональных данных.'
+                );
+            } elseif (!isset($data['agree'])) {
+                $validator->errors()->add(
+                    'agree',
+                    'Дайте согласие на обработку персональных данных.'
+                );
+            }
+
+            $flatsFull = FlatsFull::query()
+                ->where('Lso', $data['personal-account'])
+                ->first();
+
+            if (!$flatsFull) {
+                $validator->errors()->add(
+                    'personal-account.not-found',
+                    'Не верный лицевой счет. <a href="/user" target="_blank">Узнать лицевой счет по адресу</a>.'
+                );
+            }
+
+            $emailReceipt = EmailReceipt::query()
+                ->where('Ls', $data['personal-account'])
+                ->first();
+
+            if ($emailReceipt) {
+                $validator->errors()->add(
+                    'personal-account.already-exist',
+                    'Данный лицевой счет уже содержится в базе для отправления квитанции.'
+                );
+            }
+        });
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        $fileName = $this->generateCode().'.'.pathinfo($data['userfile']->getClientOriginalName(), PATHINFO_EXTENSION);
+        $request->file('userfile')->storeAs('kvit', $fileName);
+
+        $emailReceipt = new EmailReceipt();
+        $emailReceipt->Ls = $data['personal-account'];
+        $emailReceipt->Email = $data['email'];
+        $emailReceipt->From = $data['from'];
+        $emailReceipt->Adres = $data['address'];
+        $emailReceipt->Phone = $data['telephone'];
+        $emailReceipt->AdresPom = $data['address1'];
+        $emailReceipt->File = $fileName;
+        $emailReceipt->Created = now();
+        $emailReceipt->save();
+
+        return redirect()->back()->with('message', 'Ваше обращение принято.');
+    }
+
+    private function generateCode($length=6) {
+        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQSTUVWXYZ0123456789";
+        $code = "";
+        $clen = strlen($chars) - 1;
+        while (strlen($code) < $length) {
+            $code .= $chars[mt_rand(0,$clen)];
+        }
+        return $code;
     }
 
     public function getReceipt(Request $request)

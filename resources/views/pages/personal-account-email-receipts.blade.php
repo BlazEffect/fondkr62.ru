@@ -13,7 +13,23 @@
         <h2 class="main__page-heading">Заявление на получение квитанции на электронную почту</h2>
 
         <div class="main__page-wrapper">
-            <form method="post" action="" class="main-receipts-form">
+            <div class="main-receipts-form-errors">
+                @if (count($errors) > 0)
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{!! $error !!}</li>
+                        @endforeach
+                    </ul>
+                @endif
+            </div>
+
+            @if(session()->has('message'))
+                <div>{{ session()->get('message') }}</div>
+            @endif
+
+            <form method="post" action="{{ route('email-receipts.store') }}" class="main-receipts-form" enctype="multipart/form-data">
+                @csrf
+
                 <div class="main-receipts-form__half-width">
                     И.о. генерального директора Фонда капитального ремонта А.Л. Роготовскому
 

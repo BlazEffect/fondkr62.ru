@@ -58,6 +58,8 @@ Route::post('/account/getStatus', [PersonalAccountController::class, 'getStatus'
 Route::post('/account/getReceipt', [PersonalAccountController::class, 'getReceipt']);
 
 Route::get('/email-receipts', [PersonalAccountController::class, 'emailReceipts']);
+Route::post('/email-receipts', [PersonalAccountController::class, 'emailReceiptsStore'])
+    ->name('email-receipts.store');
 
 Route::get('/user', [PersonalAccountController::class, 'user']);
 Route::post('/user/user_mo', [PersonalAccountController::class, 'userMo']);
