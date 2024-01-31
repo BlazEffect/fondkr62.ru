@@ -5,7 +5,7 @@
 @endsection
 
 @section('breadcrumbs')
-{{--    {{ Breadcrumbs::render('annual-reporting', $annualReporting) }}--}}
+    {{ Breadcrumbs::render('work-performed') }}
 @endsection
 
 @section('main')

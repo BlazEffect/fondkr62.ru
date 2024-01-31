@@ -73,6 +73,12 @@ Breadcrumbs::for('programs', function (BreadcrumbTrail $trail) {
     $trail->push('Проведение капремонта', '/programs/region');
 });
 
+Breadcrumbs::for('work-performed', function (BreadcrumbTrail $trail) {
+    $trail->parent('programs');
+
+    $trail->push('Выполненные работы', '/programs/workperformed');
+});
+
 Breadcrumbs::for('short-term-plan', function (BreadcrumbTrail $trail) {
     $trail->parent('programs');
 
