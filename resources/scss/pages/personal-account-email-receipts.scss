@@ -21,6 +21,10 @@
             &:not(:last-child) {
                 margin-bottom: 25px;
             }
+
+            &:nth-child(6), &:nth-child(7) {
+                display: block;
+            }
         }
 
         // .main-receipts-form__heading
