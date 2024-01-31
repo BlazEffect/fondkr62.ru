@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    Перечень многоквартирных домов, в которых проводится капитальный ремонт в рамках реализации краткосрочных планов региональной программы капитального ремонта общего имущества
+@endsection
+
 @section('breadcrumbs')
 {{--    {{ Breadcrumbs::render('annual-reporting', $annualReporting) }}--}}
 @endsection

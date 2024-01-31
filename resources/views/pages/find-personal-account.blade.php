@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    Узнать свой лицевой счет
+@endsection
+
 @section('breadcrumbs')
     {{ Breadcrumbs::render('find-personal-account') }}
 @endsection

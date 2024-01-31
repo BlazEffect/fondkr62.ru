@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    Отзывы
+@endsection
+
 @section('styles')
     @vite('resources/scss/pages/reviews.scss')
 @endsection

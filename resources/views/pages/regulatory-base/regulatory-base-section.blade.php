@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    {{ $regulatoryBasesSection }}
+@endsection
+
 @section('breadcrumbs')
     {{ Breadcrumbs::render('regulatory-base-section', $regulatoryBases->first()) }}
 @endsection

@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    {{ $regulatoryBase->name }}
+@endsection
+
 @section('breadcrumbs')
     {{ Breadcrumbs::render('regulatory-base-item', $regulatoryBase) }}
 @endsection

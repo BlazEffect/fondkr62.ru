@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    Узнайте о своем доме
+@endsection
+
 @section('styles')
     @vite('node_modules/slim-select/dist/slimselect.css')
     @vite('resources/scss/pages/find-house.scss')

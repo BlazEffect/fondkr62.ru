@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    {{ $annualReporting->name }}
+@endsection
+
 @section('breadcrumbs')
     {{ Breadcrumbs::render('annual-reporting', $annualReporting) }}
 @endsection

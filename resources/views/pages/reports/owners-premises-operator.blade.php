@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    Отчет регионального оператора (965пр от 30.12.2015)
+@endsection
+
 @section('breadcrumbs')
     {{ Breadcrumbs::render('owners-premises-operator') }}
 @endsection

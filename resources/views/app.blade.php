@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <title>fondkr62</title>
+        <title>@yield('title', 'Фонд капитального ремонта')</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 

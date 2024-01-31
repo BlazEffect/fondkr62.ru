@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    Состояние лицевого счета
+@endsection
+
 @section('styles')
     @vite('resources/scss/pages/personal-account-status.scss')
 @endsection

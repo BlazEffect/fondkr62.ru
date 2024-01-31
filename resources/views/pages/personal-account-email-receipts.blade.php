@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    Заявление на получение квитанции на электронную почту
+@endsection
+
 @section('styles')
     @vite('resources/scss/pages/personal-account-email-receipts.scss')
 @endsection

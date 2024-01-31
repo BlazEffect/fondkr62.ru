@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    {{ $page->name }}
+@endsection
+
 @section('styles')
     @vite('resources/scss/pages/user-page.scss')
 @endsection

@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    {{ $news->name }}
+@endsection
+
 @section('styles')
     @vite('resources/scss/pages/news.scss')
 @endsection

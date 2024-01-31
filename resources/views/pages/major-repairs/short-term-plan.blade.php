@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    {{ $shortTermPlan->name }}
+@endsection
+
 @section('breadcrumbs')
     {{ Breadcrumbs::render('short-term-plan-item', $shortTermPlan) }}
 @endsection

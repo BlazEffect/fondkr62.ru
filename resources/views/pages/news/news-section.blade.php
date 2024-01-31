@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('title')
+    {{ $newsSectionName }}
+@endsection
+
 @section('breadcrumbs')
     {{ Breadcrumbs::render('news-section', $news->first()) }}
 @endsection
