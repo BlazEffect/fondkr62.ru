@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\DB;
 class FindHouseController extends Controller
 {
 
+    /**
+     * Вывод страницы "Узнайте о своем доме"
+     */
     public function index()
     {
         $this->vars['arrMunicipalities'] = HouseHelper::getMunicipalities();
@@ -29,6 +32,12 @@ class FindHouseController extends Controller
         return view('pages.find-house', $this->vars);
     }
 
+    /**
+     * Формирование массива улиц
+     *
+     * @param $codeMunicipality
+     * @return array
+     */
     public function getStreets($codeMunicipality)
     {
         $streets = Street::all(['Id', 'Pid', 'Type', 'Name', 'DopNumber'])
@@ -60,6 +69,12 @@ class FindHouseController extends Controller
         ];
     }
 
+    /**
+     * Формирование информации о доме
+     *
+     * @param $codeHouse
+     * @return array
+     */
     public function getHouse($codeHouse)
     {
         $codeHouse -= 909132453675;
@@ -309,6 +324,9 @@ class FindHouseController extends Controller
         ];
     }
 
+    /**
+     * @return mixed[]
+     */
     private function getLotsByElementsHouse()
     {
         return Lot::query()
@@ -358,7 +376,12 @@ class FindHouseController extends Controller
             ->get()
             ->toArray();
     }
-    ///-Метод получения данных о контрактах по кэ
+
+    /**
+     * Метод получения данных о контрактах по кэ
+     *
+     * @return array
+     */
     private function getContractByElementsHouse()
     {
         $ceh = ContractsElementsHouse::query()
@@ -389,7 +412,12 @@ class FindHouseController extends Controller
         }
         return $arr;
     }
-    ///-Метод получения данных об актах
+
+    /**
+     * Метод получения данных об актах
+     *
+     * @return array
+     */
     private function getActs()
     {
         $acts = Act::query()
@@ -406,7 +434,12 @@ class FindHouseController extends Controller
 
         return $this->mergeRowsAndCheckConducted($acts, "Act");
     }
-    ///-Метод получения данных об документах списания
+
+    /**
+     * Метод получения данных об документах списания
+     *
+     * @return array
+     */
     private function getDocumentsWriteOff()
     {
         $docs = DocumentsWriteOff::query()
@@ -423,7 +456,12 @@ class FindHouseController extends Controller
 
         return $this->mergeRowsAndCheckConducted($docs, "DWO");
     }
-    ///-Метод получения данных о возвратах
+
+    /**
+     * Метод получения данных о возвратах
+     *
+     * @return array
+     */
     private function getRepairReturn()
     {
         $repairReturn = RepairReturn::query()
@@ -441,6 +479,11 @@ class FindHouseController extends Controller
         return $this->mergeRowsAndCheckConducted($repairReturn, "RR");
     }
 
+    /**
+     * @param $data
+     * @param $param
+     * @return array
+     */
     private function mergeRowsAndCheckConducted($data, $param)
     {
         $arr = array();
@@ -470,6 +513,14 @@ class FindHouseController extends Controller
         return $arr;
     }
 
+    /**
+     * @param $leh
+     * @param $ceh
+     * @param $act
+     * @param $dwo
+     * @param $rr
+     * @return array
+     */
     private function joinAllTables($leh, $ceh, $act, $dwo, $rr)
     {
         $arr = array();
@@ -491,6 +542,9 @@ class FindHouseController extends Controller
         return $arr;
     }
 
+    /**
+     * @return array
+     */
     private function getAllTables()
     {
         $LEH = $this->getLotsByElementsHouse();
@@ -502,6 +556,10 @@ class FindHouseController extends Controller
         return $this->joinAllTables($LEH, $CEH, $ACT, $DWO, $RR);
     }
 
+    /**
+     * @param $codeHouse
+     * @return array
+     */
     private function ArrWorksByHouse($codeHouse)
     {
         $arr = array();
@@ -517,6 +575,15 @@ class FindHouseController extends Controller
         return $arr;
     }
 
+    /**
+     * Выстраивание дерева улиц
+     *
+     * @param $arrStreets
+     * @param $id
+     * @param $house
+     * @param $arrWork
+     * @return array|mixed
+     */
     private function recursiveSearchParent($arrStreets, $id, $house, $arrWork = array())
     {
         $street = $arrStreets[$id];
@@ -531,6 +598,9 @@ class FindHouseController extends Controller
         return $this->recursiveSearchParent($arrStreets, $street['Pid'], $house, $arrWork);
     }
 
+    /**
+     * @return void
+     */
     private function countHouseTypeFormingFond()
     {
         $houses = House::query()
@@ -551,6 +621,12 @@ class FindHouseController extends Controller
         $this->vars['countCommonAreaMKD'] = $this->sum($this->vars['countCommonAreaMKD']);
     }
 
+    /**
+     * Преобразование формата денег
+     *
+     * @param $string
+     * @return string
+     */
     private function sum($string): string
     {
         $local = str_replace(",", ".", $string);
@@ -571,6 +647,11 @@ class FindHouseController extends Controller
         return $pub[0] . "," . $kop;
     }
 
+    /**
+     * @param $a
+     * @param $b
+     * @return int
+     */
     private function filtrStreets($a, $b)
     {
         $municipalities = HouseHelper::getMunicipalities();

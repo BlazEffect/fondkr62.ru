@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class ReportsController extends Controller
 {
+    /**
+     * Вывод страницы "Отчет регионального оператора"
+     */
     public function index()
     {
         $this->vars['regions'] = ActsData::query()
@@ -20,6 +23,10 @@ class ReportsController extends Controller
         return view('pages.reports.owners-premises-operator', $this->vars);
     }
 
+    /**
+     * @param Request $request
+     * @return false|string
+     */
     public function searchActMo(Request $request)
     {
         $settlements = ActsData::query()
@@ -48,6 +55,10 @@ class ReportsController extends Controller
         return json_encode($html);
     }
 
+    /**
+     * @param Request $request
+     * @return false|string
+     */
     public function searchActNp(Request $request)
     {
         $officialAddresses = ActsData::query()
@@ -76,6 +87,10 @@ class ReportsController extends Controller
         return json_encode($html);
     }
 
+    /**
+     * @param Request $request
+     * @return false|string
+     */
     public function searchActHs(Request $request)
     {
         $acts = ActsData::query()

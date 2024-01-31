@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Corruption;
 use App\Models\Page;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class PageController extends Controller
 {
+    /**
+     * Вывод пользовательских страниц
+     *
+     * @param Page $page
+     */
     public function index(Page $page)
     {
         $this->vars['page'] = $page;
@@ -16,11 +22,20 @@ class PageController extends Controller
         return view('pages.user-page', $this->vars);
     }
 
+    /**
+     * Вывод страницы "Коррупции"
+     */
     public function korrupcii()
     {
         return view('pages.korrupcii', $this->vars);
     }
 
+    /**
+     * Обработка формы на странице "Коррупции"
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function korrupciiStore(Request $request)
     {
         $data = $request->all();

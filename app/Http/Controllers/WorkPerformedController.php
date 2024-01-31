@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\DB;
 
 class WorkPerformedController extends Controller
 {
+    /**
+     * Вывод страницы "Выполнение работ"
+     */
     public function index()
     {
         $sh = 909132453675;
@@ -144,6 +147,9 @@ class WorkPerformedController extends Controller
         return view('pages.major-repairs.work-performed', $this->vars);
     }
 
+    /**
+     * @return ElementsHouse[]
+     */
     private function getElementsHouses()
     {
         return ElementsHouse::query()
@@ -156,6 +162,9 @@ class WorkPerformedController extends Controller
             ->get();
     }
 
+    /**
+     * @return mixed[]
+     */
     private function getLotsByElementsHouse()
     {
         return Lot::query()
@@ -205,7 +214,12 @@ class WorkPerformedController extends Controller
             ->get()
             ->toArray();
     }
-    ///-Метод получения данных о контрактах по кэ
+
+    /**
+     * Метод получения данных о контрактах по кэ
+     *
+     * @return array
+     */
     private function getContractByElementsHouse()
     {
         $ceh = ContractsElementsHouse::query()
@@ -236,7 +250,12 @@ class WorkPerformedController extends Controller
         }
         return $arr;
     }
-    ///-Метод получения данных об актах
+
+    /**
+     * Метод получения данных об актах
+     *
+     * @return array
+     */
     private function getActs()
     {
         $acts = Act::query()
@@ -253,7 +272,12 @@ class WorkPerformedController extends Controller
 
         return $this->mergeRowsAndCheckConducted($acts, "Act");
     }
-    ///-Метод получения данных об документах списания
+
+    /**
+     * Метод получения данных об документах списания
+     *
+     * @return array
+     */
     private function getDocumentsWriteOff()
     {
         $docs = DocumentsWriteOff::query()
@@ -270,7 +294,12 @@ class WorkPerformedController extends Controller
 
         return $this->mergeRowsAndCheckConducted($docs, "DWO");
     }
-    ///-Метод получения данных о возвратах
+
+    /**
+     * Метод получения данных о возвратах
+     *
+     * @return array
+     */
     private function getRepairReturn()
     {
         $repairReturn = RepairReturn::query()
@@ -288,6 +317,11 @@ class WorkPerformedController extends Controller
         return $this->mergeRowsAndCheckConducted($repairReturn, "RR");
     }
 
+    /**
+     * @param $data
+     * @param $param
+     * @return array
+     */
     private function mergeRowsAndCheckConducted($data, $param)
     {
         $arr = array();
@@ -317,6 +351,14 @@ class WorkPerformedController extends Controller
         return $arr;
     }
 
+    /**
+     * @param $leh
+     * @param $ceh
+     * @param $act
+     * @param $dwo
+     * @param $rr
+     * @return array
+     */
     private function joinAllTables($leh, $ceh, $act, $dwo, $rr)
     {
         $arr = array();
@@ -338,6 +380,9 @@ class WorkPerformedController extends Controller
         return $arr;
     }
 
+    /**
+     * @return array
+     */
     private function getAllTables()
     {
         $LEH = $this->getLotsByElementsHouse();
@@ -349,6 +394,10 @@ class WorkPerformedController extends Controller
         return $this->joinAllTables($LEH, $CEH, $ACT, $DWO, $RR);
     }
 
+    /**
+     * @param $codeHouse
+     * @return array
+     */
     private function ArrWorksByHouse($codeHouse)
     {
         $arr = array();
@@ -364,6 +413,10 @@ class WorkPerformedController extends Controller
         return $arr;
     }
 
+    /**
+     * @param $date
+     * @return string
+     */
     private function dateFormat($date)
     {
         if($date == null || $date == '')
@@ -371,6 +424,10 @@ class WorkPerformedController extends Controller
         return date("d.m.Y", strtotime($date));
     }
 
+    /**
+     * @param $string
+     * @return string
+     */
     public function sum($string)
     {
         $local = str_replace(",", ".", $string);
@@ -392,7 +449,14 @@ class WorkPerformedController extends Controller
             $kop = $kop[0].$kop[1];
         return $pub[0].",".$kop;
     }
-    ///-Статический метод преобразования строки в формат даты
+
+    /**
+     * Статический метод преобразования строки в формат даты
+     *
+     * @param $date
+     * @param $format
+     * @return string
+     */
     public function date($date, $format = "d.m.Y")
     {
         if($date == null || $date == '')

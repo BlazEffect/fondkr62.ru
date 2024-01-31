@@ -17,6 +17,7 @@ class Controller extends BaseController
 
     public function __construct()
     {
+        // Список элементов "Нормативно-правовая база" для формирования меню
         $regulatoryBases = RegulatoryBase::all(['name', 'slug', 'section_name'])
             ->groupBy('section_name');
         $regulatoryBasesSectionChildren = [];
@@ -45,6 +46,7 @@ class Controller extends BaseController
             ];
         }
 
+        // Список элементов "Новости" для формирования меню
         $news = News::all('section_name')
             ->unique('section_name')
             ->sortByDesc('section_name');
@@ -66,6 +68,7 @@ class Controller extends BaseController
             ];
         }
 
+        // Список элементов "Краткосрочные планы" для формирования меню
         $shortTermPlans = ShortTermPlan::all(['name', 'slug']);
         $shortTermPlansChildren = [];
         foreach ($shortTermPlans as $shortTermPlan) {

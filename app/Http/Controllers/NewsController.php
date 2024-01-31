@@ -6,6 +6,11 @@ use App\Models\News;
 
 class NewsController extends Controller
 {
+    /**
+     * Вывод элементов раздела новостей
+     *
+     * @param $newsSection
+     */
     public function index($newsSection)
     {
         $news = News::query()
@@ -32,6 +37,12 @@ class NewsController extends Controller
         abort(404);
     }
 
+    /**
+     * Детальная страница "Новости"
+     *
+     * @param $newsSection
+     * @param $newsSlug
+     */
     public function show($newsSection, $newsSlug){
         $news = News::query()
             ->where('section_name', $newsSection)

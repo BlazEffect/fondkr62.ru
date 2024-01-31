@@ -7,16 +7,24 @@ use App\Models\EmailReceipt;
 use App\Models\FlatsFull;
 use App\Models\House;
 use App\Models\Street;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class PersonalAccountController extends Controller
 {
+    /**
+     * Вывод страницы "Состояние лицевого счета"
+     */
     public function accountStatus()
     {
         return view('pages.personal-account-status', $this->vars);
     }
 
+    /**
+     * @param Request $request
+     * @return string[]
+     */
     public function getStatus(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -279,11 +287,18 @@ class PersonalAccountController extends Controller
         ];
     }
 
+    /**
+     * Вывод страницы "Заявление на получение квитанции на электронную почту"
+     */
     public function emailReceipts()
     {
         return view('pages.personal-account-email-receipts', $this->vars);
     }
 
+    /**
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function emailReceiptsStore(Request $request)
     {
         $data = $request->all();
@@ -359,6 +374,10 @@ class PersonalAccountController extends Controller
         return redirect()->back()->with('message', 'Ваше обращение принято.');
     }
 
+    /**
+     * @param $length
+     * @return string
+     */
     private function generateCode($length=6) {
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQSTUVWXYZ0123456789";
         $code = "";
@@ -369,6 +388,10 @@ class PersonalAccountController extends Controller
         return $code;
     }
 
+    /**
+     * @param Request $request
+     * @return false|string
+     */
     public function getReceipt(Request $request)
     {
         $data = FlatsFull::query()
@@ -431,6 +454,9 @@ class PersonalAccountController extends Controller
             number_format(($dolg + $nach + $peni), 2, ',', ' ') . '||ST00012|Name=Фонд капитального ремонта многоквартирных домов Рязанской области|PersonalAcc=40703810953000000557|BankName=ОТДЕЛЕНИЕ N 8606 СБЕРБАНКА РОССИИ г. РЯЗАНЬ|BIC=046126614|CorrespAcc=30101810500000000614|PayeeINN=6229990334|persAcc=' . $request->input('ls') . '|Purpose=Оплата взноса на капитальный ремонт|PayerAddress=' . $data['FullAddress'] . (strpos($data['Kv'], 'Н') == false ? ' , кв. ' : ' , пом. ') . $data['Kv'] . '|Date=' . date('d.m.Y') . '|SumNedopl=' . ($dolg * 100) . '|SumNachisl=' . ($nach * 100) . '|SumVznos=' . (($dolg + $nach + $peni) * 100) . '|SumPeny=' . ($peni * 100));
     }
 
+    /**
+     * Вывод страницы "Узнать свой лицевой счет"
+     */
     public function user()
     {
         $this->vars['streets'] = Street::query()
@@ -441,6 +467,10 @@ class PersonalAccountController extends Controller
         return view('pages.find-personal-account', $this->vars);
     }
 
+    /**
+     * @param Request $request
+     * @return false|string
+     */
     public function userMo(Request $request)
     {
         $id = $request->input('id') ?? 1;
@@ -500,6 +530,10 @@ class PersonalAccountController extends Controller
         return json_encode($html);
     }
 
+    /**
+     * @param Request $request
+     * @return false|string
+     */
     public function userNp(Request $request)
     {
         $id = $request->input('id') ?? 1;
@@ -550,6 +584,10 @@ class PersonalAccountController extends Controller
         return json_encode($html);
     }
 
+    /**
+     * @param Request $request
+     * @return false|string
+     */
     public function userHs(Request $request)
     {
         $id = $request->input('id') ?? 1;
@@ -589,6 +627,10 @@ class PersonalAccountController extends Controller
         return json_encode($html);
     }
 
+    /**
+     * @param Request $request
+     * @return false|string
+     */
     public function userLs(Request $request)
     {
         $codeHouse = $request->get('ch');
@@ -624,6 +666,10 @@ class PersonalAccountController extends Controller
         return json_encode($html);
     }
 
+    /**
+     * @param $string
+     * @return string
+     */
     private function myMoney($string)
     {
         $local = str_replace(",", ".", $string);
@@ -644,6 +690,10 @@ class PersonalAccountController extends Controller
         return $pub[0] . " руб. " . $kop . " коп.";
     }
 
+    /**
+     * @param $string
+     * @return string
+     */
     private function myDate($string)
     {
         $local = explode("-", $string);

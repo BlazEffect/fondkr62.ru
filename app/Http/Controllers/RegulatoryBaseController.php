@@ -6,6 +6,11 @@ use App\Models\RegulatoryBase;
 
 class RegulatoryBaseController extends Controller
 {
+    /**
+     * Вывод элементов раздела нормативно-правовая база
+     *
+     * @param $regulatoryBaseSection
+     */
     public function index($regulatoryBaseSection)
     {
         $regulatoryBases = RegulatoryBase::query()
@@ -30,6 +35,12 @@ class RegulatoryBaseController extends Controller
         abort(404);
     }
 
+    /**
+     * Детальная страница "нормативно-правовая база"
+     *
+     * @param $regulatoryBaseSection
+     * @param $regulatoryBaseSlug
+     */
     public function show($regulatoryBaseSection, $regulatoryBaseSlug)
     {
         $regulatoryBase = RegulatoryBase::query()

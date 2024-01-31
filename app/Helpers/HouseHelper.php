@@ -4,6 +4,11 @@ namespace App\Helpers;
 
 class HouseHelper
 {
+    /**
+     * Массив муниципальных округов и регионов для формирования на странице "Узнайте о своем доме"
+     *
+     * @return array
+     */
     public static function getMunicipalities()
     {
         $arrMunicipalities['40770740560360901016031'] = array('Id' => '36', 'Name' => 'Рязань', 'Type' => 'G');

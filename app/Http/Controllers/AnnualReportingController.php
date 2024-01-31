@@ -6,6 +6,9 @@ use App\Models\AnnualReporting;
 
 class AnnualReportingController extends Controller
 {
+    /**
+     * Вывод раздела "Ежегодная отчетность"
+     */
     public function index()
     {
         $annualReportings = AnnualReporting::all()
@@ -16,6 +19,11 @@ class AnnualReportingController extends Controller
         return view('pages.reports.annual-reporting-section', $this->vars);
     }
 
+    /**
+     * Детальная страница "Ежегодная отчетность"
+     *
+     * @param AnnualReporting $annualReporting
+     */
     public function show(AnnualReporting $annualReporting)
     {
         $this->vars['annualReporting'] = $annualReporting;
