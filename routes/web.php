@@ -32,6 +32,7 @@ Route::get('/bazaprav/{regulatoryBaseSection}', [RegulatoryBaseController::class
 Route::get('/bazaprav/{regulatoryBaseSection}/{regulatoryBaseSlug}', [RegulatoryBaseController::class, 'show'])
     ->name('regulatory-base');
 
+Route::get('/reports/yearly', [AnnualReportingController::class, 'index']);
 Route::get('/reports/yearly/{annualReporting:slug}', [AnnualReportingController::class, 'show'])
     ->missing(function () {
         abort(404);

@@ -35,11 +35,15 @@ Breadcrumbs::for('regulatory-base-item', function (BreadcrumbTrail $trail, Regul
     $trail->push($regulatoryBase->name);
 });
 
-Breadcrumbs::for('annual-reporting', function (BreadcrumbTrail $trail, AnnualReporting $annualReporting) {
+Breadcrumbs::for('annual-reporting-section', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
 
     $trail->push('Отчетность', '/reports/yearly');
     $trail->push('Ежегодная отчетность', '/reports/yearly');
+});
+
+Breadcrumbs::for('annual-reporting-item', function (BreadcrumbTrail $trail, AnnualReporting $annualReporting) {
+    $trail->parent('annual-reporting-section');
 
     $trail->push($annualReporting->name);
 });

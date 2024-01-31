@@ -1,25 +1,24 @@
 @extends('app')
 
 @section('title')
-    {{ $annualReporting->name }}
+    Ежегодная отчетность
 @endsection
 
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('annual-reporting-item', $annualReporting) }}
+    {{ Breadcrumbs::render('annual-reporting-section') }}
 @endsection
 
 @section('main')
     <main class="main">
-        <h2 class="main__page-heading">{{ $annualReporting->name }}</h2>
+        <h2 class="main__page-heading">Ежегодная отчетность</h2>
 
         <div class="main__page-wrapper">
             <div class="main-files__list">
-                @foreach($annualReporting->documents as $document)
+                @foreach($annualReportings as $annualReporting)
                     <div class="main-files__item">
                         <a class="main-files__link"
-                           href="/annual-reporting/{{ $document['document'] }}"
-                           target="_blank">
-                            {{ $document['name'] }}
+                           href="/reports/yearly/{{ $annualReporting->slug }}">
+                            {{ $annualReporting->name }}
                         </a>
                     </div>
                 @endforeach
