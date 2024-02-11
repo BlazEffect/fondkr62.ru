@@ -19,7 +19,6 @@
 @endsection
 
 @section('scripts')
-    @vite('resources/js/pages/completeAddress.js')
     <script>var yearValue = '2020';</script>
     @vite('resources/js/pages/work-performed.js')
 @endsection
