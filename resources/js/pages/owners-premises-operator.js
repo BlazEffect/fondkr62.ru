@@ -23,8 +23,8 @@ choose_mo_act.addEventListener('keyup',function(){
 dda_shown_act.forEach((element) => {
     element.addEventListener('click', function(){
         document.querySelector('#choose_mo_act').value = element.innerHTML;
-        document.querySelector('.for_class div').classList.remove();
-        document.querySelector('.for_class div').classList.add(element.getAttribute('href').replace('#', ''));
+        // document.querySelector('.for_class div').classList.remove();
+        // document.querySelector('.for_class div').classList.add(element.getAttribute('href').replace('#', ''));
         document.querySelector('.kv_dd_act').style.display = "none";
         document.querySelector('.form_mo_act')?.remove();
         document.querySelector('.form_mo_act_hs')?.remove();
