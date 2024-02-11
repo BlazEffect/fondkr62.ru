@@ -86,11 +86,7 @@ export default function addDropDowns() {
     const dropdownItems = document.querySelector('.main__dropdown-content > *');
 
     if (dropdownToggle && dropdownContent && dropdownItems) {
-        console.log('test');
-
         dropdownToggle.addEventListener('change', function () {
-            console.log('test1');
-
             if (dropdownToggle.checked) {
                 dropdownContent.style.height = dropdownItems.offsetHeight + 'px';
             } else {
