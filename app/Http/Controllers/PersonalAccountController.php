@@ -641,8 +641,8 @@ class PersonalAccountController extends Controller
             ->whereRaw('LEFT(CAST("Lso" as varchar), 9) = ?', [$codeHouse])
             ->where('Kv', $kv)
             ->where('Kom', $kom)
-            ->where('NotNach', 0)
-            ->where('Del', 0)
+            ->whereNot('NotNach', 'True')
+            ->whereNot('Del', 'True')
             ->get();
 
         $mes = '';
