@@ -35,6 +35,38 @@
     }
 }
 
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
+
+    & .percent_tr td {
+        background: #EAEBEE;
+        font-weight: bold;
+        color: #000;
+    }
+}
+
+th {
+    text-align: center;
+}
+
+th, td {
+    padding: 8px;
+}
+
+table, colgroup, thead, tbody, tfoot, tr, th, td {
+    border: 1px solid black;
+}
+
+th {
+    background-color: #fff;
+    font-family: "Inter-SemiBold";
+}
+
+table a {
+    color: #66c;
+}
+
 #dropdown-toggle:checked + .main__dropdown-content {
     margin: 0 20px 15px;
 }
