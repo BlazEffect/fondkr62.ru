@@ -18,6 +18,7 @@ export default defineConfig({
                 'resources/scss/pages/user-page.scss',
                 'resources/js/pages/find-house.js',
                 'resources/js/pages/find-personal-account.js',
+                'resources/js/pages/home.js',
                 'resources/js/pages/korrupcii.js',
                 'resources/js/pages/owners-premises-operator.js',
                 'resources/js/pages/personal-account-status.js',
