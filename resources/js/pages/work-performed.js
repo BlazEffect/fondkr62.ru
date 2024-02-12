@@ -7968,8 +7968,8 @@ function setValues_year() {
     });
     console.log(yearAss);
     formateYearTab();
-    document.querySelector('#wp_top_wrap').style.visibility = 'visible';
     document.querySelector('#wp_top_preloader').style.display = 'none';
+    document.querySelector('#wp_top_wrap').style.visibility = 'visible';
 }
 
 

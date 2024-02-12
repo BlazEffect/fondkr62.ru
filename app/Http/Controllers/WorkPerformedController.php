@@ -120,7 +120,7 @@ class WorkPerformedController extends Controller
         $html .= $info;
         $html .= "</div>";
         $html .= "</noscript>";
-        $html .= "<div id=\"wp_top_preloader\"><img src=\"/pages/fondkr62/img/preloader.gif\" /></div>";
+        $html .= "<div id=\"wp_top_preloader\"><img src=\"/assets/images/work-performed/preloader.gif\" /></div>";
         $html .= "<div id=\"wp_top_wrap\">";
         $html .= "<div id=\"wp_stat_total\" class=\"wp_stat\"></div>";
         $html .= "<div id=\"wpTab\" class=\"tgl_content tgс_shown\">";
