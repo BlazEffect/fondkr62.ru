@@ -1,0 +1,56 @@
+table {
+    border-collapse: collapse;
+}
+
+th {
+    text-align: center;
+}
+
+th, td {
+    padding: 8px;
+}
+
+table, colgroup, thead, tbody, tfoot, tr, th, td {
+    border: 1px solid black;
+}
+
+th {
+    background-color: #fff;
+    font-family: "Inter-SemiBold";
+}
+
+table a {
+    color: #66c;
+}
+
+#wp_top_preloader {
+    display: flex;
+    justify-content: center;
+}
+
+#wp_top_wrap {
+    visibility: hidden;
+}
+
+#wpTab {
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    & > h3 {
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+}
+
+.wt_block {
+    display: flex;
+    margin-bottom: 10px;
+
+    & > * {
+        width: 50%;
+    }
+}

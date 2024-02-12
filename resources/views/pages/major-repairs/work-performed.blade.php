@@ -4,6 +4,10 @@
     Перечень многоквартирных домов, в которых проводится капитальный ремонт в рамках реализации краткосрочных планов региональной программы капитального ремонта общего имущества
 @endsection
 
+@section('styles')
+    @vite('resources/scss/pages/work-performed.scss')
+@endsection
+
 @section('breadcrumbs')
     {{ Breadcrumbs::render('work-performed') }}
 @endsection

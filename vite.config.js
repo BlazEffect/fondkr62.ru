@@ -16,6 +16,7 @@ export default defineConfig({
                 'resources/scss/pages/personal-account-status.scss',
                 'resources/scss/pages/reviews.scss',
                 'resources/scss/pages/user-page.scss',
+                'resources/scss/pages/work-performed.scss',
                 'resources/js/pages/find-house.js',
                 'resources/js/pages/find-personal-account.js',
                 'resources/js/pages/home.js',
