@@ -8,15 +8,15 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('selections', function (Blueprint $table) {
-            $table->string('Oid', 30);
-            $table->string('Id', 30);
-            $table->timestamp('DatePublic', 0);
-            $table->timestamp('DateOpening', 0);
-            $table->timestamp('DateEnd', 0);
+            $table->string('Oid', 30)->unique();
+            $table->string('Id', 30)->unique();
+            $table->timestamp('DatePublic')->nullable();
+            $table->timestamp('DateOpening');
+            $table->timestamp('DateEnd')->nullable();
             $table->boolean('OnlyContractor')->nullable();
             $table->string('Url', 30)->nullable();
-            $table->integer('StartSum');
-            $table->integer('FinalSum');
+            $table->decimal('StartSum')->nullable();
+            $table->decimal('FinalSum')->nullable();
         });
     }
 

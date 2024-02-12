@@ -10,13 +10,16 @@ return new class extends Migration {
         Schema::create('repair_return', function (Blueprint $table) {
             $table->string('Id', 30)->nullable();
             $table->string('IdContract', 30);
-            $table->timestamp('Date', 0);
-            $table->integer('Sum')->nullable();
-            $table->string('CodeHouse');
+            $table->timestamp('Date')->nullable();
+            $table->decimal('Sum')->nullable();
+            $table->integer('CodeHouse');
             $table->string('NameElementHouse', 200);
             $table->boolean('Conducted')->nullable();
             $table->string('CodeTypeWork', 10);
-            $table->timestamp('DateReturn', 0);
+            $table->timestamp('DateReturn')->nullable();
+
+            $table->foreign('IdContract')->references('Id')->on('contracts');
+            $table->foreign('CodeHouse')->references('CodeHouse')->on('houses');
         });
     }
 

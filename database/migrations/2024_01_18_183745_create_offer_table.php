@@ -8,10 +8,10 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('offer', function (Blueprint $table) {
-            $table->string('CodeHouse')->nullable();
-            $table->string('Kel', 400)->nullable();
-            $table->string('Limite', 1500)->nullable();
-            $table->string('Date', 10)->nullable();
+            $table->integer('CodeHouse')->nullable();
+            $table->char('Kel', 400)->nullable();
+            $table->char('Limite', 1500)->nullable();
+            $table->char('Date', 10)->nullable();
         });
     }
 

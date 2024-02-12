@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->string('Winner', 200)->nullable();
             $table->string('WinnerSecond', 200)->nullable();
             $table->string('StatusSelection', 100)->nullable();
+
+            $table->foreign('IdSelection')->references('Id')->on('selections');
         });
     }
 

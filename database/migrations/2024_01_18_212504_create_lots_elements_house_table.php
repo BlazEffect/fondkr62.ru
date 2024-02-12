@@ -12,6 +12,8 @@ return new class extends Migration {
             $table->string('IdSelection', 30);
             $table->integer('IdLot');
             $table->string('Link', 200);
+
+            $table->foreign('OidLot')->references('Oid')->on('lots');
         });
     }
 

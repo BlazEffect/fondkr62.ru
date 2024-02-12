@@ -8,7 +8,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('streets', function (Blueprint $table) {
-            $table->integer('Id');
+            $table->integer('Id')->primary();
             $table->integer('Pid');
             $table->string('Type', 36)->nullable();
             $table->string('Name', 72)->nullable();
@@ -17,8 +17,8 @@ return new class extends Migration {
             $table->string('Level', 8)->nullable();
             $table->string('CodeFIAS', 36)->nullable();
             $table->timestamp('CreatedDate', 0);
-            $table->string('ParentFIAS', 36);
-            $table->string('TypeSmall', 16);
+            $table->char('ParentFIAS', 36)->nullable();
+            $table->char('TypeSmall', 16)->nullable();
         });
     }
 

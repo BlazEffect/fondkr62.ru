@@ -8,14 +8,14 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('account', function (Blueprint $table) {
-            $table->string('Ls');
-            $table->decimal('Saldo');
-            $table->decimal('LastPay');
-            $table->decimal('Debet76');
-            $table->decimal('Credit76');
-            $table->decimal('PeniDebet');
-            $table->decimal('PeniCredit');
-            $table->timestamp('Date');
+            $table->decimal('Ls')->nullable()->unique();
+            $table->double('Saldo')->nullable();
+            $table->double('LastPay')->nullable();
+            $table->timestamp('Date')->nullable();
+            $table->double('Debet76')->nullable();
+            $table->double('Credit76')->nullable();
+            $table->double('PeniDebet')->nullable();
+            $table->double('PeniCredit')->nullable();
         });
     }
 

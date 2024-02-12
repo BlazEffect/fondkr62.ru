@@ -10,11 +10,14 @@ return new class extends Migration {
         Schema::create('contracts_elements_house', function (Blueprint $table) {
             $table->string('IdContract', 30)->nullable();
             $table->string('OidElementHouse', 30)->nullable();
-            $table->integer('Sum');
-            $table->timestamp('DateStart', 0);
-            $table->timestamp('DateEnd', 0);
-            $table->timestamp('TermPayment', 0);
+            $table->decimal('Sum')->nullable();
+            $table->timestamp('DateStart')->nullable();
+            $table->timestamp('DateEnd')->nullable();
+            $table->timestamp('TermPayment')->nullable();
             $table->string('LinkLot', 100)->nullable();
+
+            $table->foreign('IdContract')->references('Id')->on('contracts');
+            $table->foreign('OidElementHouse')->references('Oid')->on('elements_house');
         });
     }
 

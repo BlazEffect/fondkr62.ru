@@ -8,9 +8,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('debit_and_credit', function (Blueprint $table) {
-            $table->string('CodeHouse')->nullable();
-            $table->integer('Debit')->nullable();
-            $table->integer('Credit')->nullable();
+            $table->integer('CodeHouse')->nullable()->unique();
+            $table->decimal('Debit')->nullable();
+            $table->decimal('Credit')->nullable();
+
+            $table->foreign('CodeHouse')->references('CodeHouse')->on('houses');
         });
     }
 

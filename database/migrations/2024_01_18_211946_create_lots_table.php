@@ -8,15 +8,17 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('lots', function (Blueprint $table) {
-            $table->string('Oid', 30);
+            $table->string('Oid', 30)->unique();
             $table->string('IdSelection', 30);
             $table->integer('Id');
-            $table->integer('StartSum')->nullable();
-            $table->integer('WinnerSum')->nullable();
-            $table->integer('WinnerSecondSum')->nullable();
+            $table->decimal('StartSum')->nullable();
+            $table->decimal('WinnerSum')->nullable();
+            $table->decimal('WinnerSecondSum')->nullable();
             $table->string('TypeWork', 100);
             $table->string('Link', 200);
             $table->string('ResultSelectionByLot', 200)->nullable();
+
+            $table->foreign('IdSelection')->references('Id')->on('selections');
         });
     }
 
