@@ -13,6 +13,8 @@ new SlimSelect({
     },
     events: {
         afterChange: (newMunicipalFormation) => {
+            streetSelectorBlock.style.display = 'none';
+
             const request = new XMLHttpRequest();
             const params = "&_token=" + document.querySelector('input[name=_token]').value;
             request.responseType = "json";
@@ -32,36 +34,44 @@ new SlimSelect({
                             }
                         ]);
 
-                        new SlimSelect({
-                            select: '.main-selectors__streets-selector > select',
-                            data: data,
-                            settings: {
-                                placeholderText: 'Выберите улицу',
-                                searchPlaceholder: 'Поиск',
-                                searchText: 'Извините. По Вашему запросу ничего не найдено.'
-                            },
-                            events: {
-                                afterChange: (newStreet) => {
-                                    const request = new XMLHttpRequest();
-                                    const params = "&_token=" + document.querySelector('input[name=_token]').value;
-                                    request.responseType = "json";
-                                    request.open("POST", "/base/house/getHouse/" + newStreet[0].value, true);
-                                    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        let streetSelect = document.querySelector('.main-selectors__streets-selector > select');
 
-                                    request.addEventListener("readystatechange", () => {
-                                        if (request.readyState === 4 && request.status === 200) {
-                                            houseInfo.innerHTML = '';
+                        let slimSelect = streetSelect.slim;
 
-                                            houseInfo.innerHTML = request.response.html;
-                                            houseInfo.style.display = 'block';
-                                            addDropDowns();
-                                        }
-                                    });
+                        if (slimSelect) {
+                            slimSelect.setData(data);
+                        } else {
+                            new SlimSelect({
+                                select: '.main-selectors__streets-selector > select',
+                                data: data,
+                                settings: {
+                                    placeholderText: 'Выберите улицу',
+                                    searchPlaceholder: 'Поиск',
+                                    searchText: 'Извините. По Вашему запросу ничего не найдено.'
+                                },
+                                events: {
+                                    afterChange: (newStreet) => {
+                                        const request = new XMLHttpRequest();
+                                        const params = "&_token=" + document.querySelector('input[name=_token]').value;
+                                        request.responseType = "json";
+                                        request.open("POST", "/base/house/getHouse/" + newStreet[0].value, true);
+                                        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-                                    request.send(params);
+                                        request.addEventListener("readystatechange", () => {
+                                            if (request.readyState === 4 && request.status === 200) {
+                                                houseInfo.innerHTML = '';
+
+                                                houseInfo.innerHTML = request.response.html;
+                                                houseInfo.style.display = 'block';
+                                                addDropDowns();
+                                            }
+                                        });
+
+                                        request.send(params);
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
 
                         streetSelectorBlock.style.display = 'block';
                     } else {
