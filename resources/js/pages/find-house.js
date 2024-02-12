@@ -98,10 +98,13 @@ function formingOptions(id, streets, arrOptions = []) {
                     options: formingOptions(item.Id, streets, [])
                 });
             } else {
-                const korp = ["Корпус", "Строение", "Секция"].includes(item.KorpType) ? " " + item.KorpType + " " : item.KorpType;
+                const korp = ["Корпус", "Строение", "Секция"].includes(item.KorpType) ? " " + item.KorpType + " " : ' ';
+
+                let litera = item.Litera ?? ' ';
+                let numKorp = item.NumKorp ?? ' ';
 
                 arrOptions.push({
-                    text: 'д. ' + item.NumberHouse + item.Litera + korp + item.NumKorp,
+                    text: 'д. ' + item.NumberHouse + litera + korp + numKorp,
                     value: parseInt(item.CodeHouse) + 909132453675,
                 });
             }
