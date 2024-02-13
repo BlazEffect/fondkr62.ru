@@ -9,6 +9,7 @@ use App\Models\House;
 use App\Models\Street;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class PersonalAccountController extends Controller
@@ -40,9 +41,11 @@ class PersonalAccountController extends Controller
 
         $personalAccountCode = $request->input('personal-account-code');
 
+        //dd($personalAccountCode);
+
         $data = Account::query()
             ->where('Ls', $personalAccountCode)
-            ->join('houses', 'account.Ls', '=', 'houses.CodeHouse')
+            ->join('houses', DB::raw('"account"."Ls"::character varying(9)::integer'), '=', 'houses.CodeHouse')
             ->select([
                 'account.Ls',
                 'account.Saldo',
@@ -66,7 +69,9 @@ class PersonalAccountController extends Controller
 
         $data = $data->toArray();
 
-        if ($data['RegionalProgram'] !== null) {
+        //dd($data);
+
+        if ($data['RegionalProgram'] != null) {
             return [
                 'status' => 'error',
                 'message' => "Дом исключен из региональной программы постановлением <a href=\"/programs/region/\">" . $data['RegionalProgram'] . "</a>"
@@ -396,7 +401,7 @@ class PersonalAccountController extends Controller
     {
         $data = FlatsFull::query()
             ->where('Lso', $request->input('ls'))
-            ->join('houses', 'flats_full.Lso', '=', 'houses.CodeHouse')
+            ->join('houses', DB::raw('CAST(LEFT(CAST("flats_full"."Lso" as varchar), 9) as decimal)'), '=', 'houses.CodeHouse')
             ->join('account', 'flats_full.Lso', '=', 'account.Ls')
             ->first()
             ->toArray();
