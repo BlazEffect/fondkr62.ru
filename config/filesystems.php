@@ -94,6 +94,7 @@ return [
     */
 
     'links' => [
+        public_path('documents') => storage_path('app/public/documents'),
         public_path('regulatory-base') => storage_path('app/public/regulatory-base'),
         public_path('annual-reporting') => storage_path('app/public/annual-reporting'),
         public_path('short-term-plan') => storage_path('app/public/short-term-plan'),
