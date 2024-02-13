@@ -7623,9 +7623,9 @@ function baseData() {
     }
 
 
-    window['wpStatTotal'] = document.querySelector('#wp_stat_total')[0];
-    window['wpStatTotalLow'] = document.querySelector('#wp_stat_total_low')[0];
-    window['wpStatYear'] = document.querySelector('#wp_stat_year')[0];
+    window.wpStatTotal = document.querySelector('#wp_stat_total');
+    window.wpStatTotalLow = document.querySelector('#wp_stat_total_low');
+    window.wpStatYear = document.querySelector('#wp_stat_year');
 }
 
 function getStats(workArr, writeStages) {
@@ -7691,7 +7691,7 @@ function getStats(workArr, writeStages) {
 function getNumberOfHouses(konstArr) {
     var hsTempAss = createAss(konstArr, 0, true);
 
-    return hsTempAss.length;
+    return Object.keys(hsTempAss).length;
 }
 
 function formateYearTab() {
@@ -7901,18 +7901,18 @@ function makeTable() {
     }
 
     if (yearValue == '0') {
-        window['wpStatYear'].style.display = 'none';
-        window['wpStatTotal'].innerHTML = 'Всего в данном разделе представлено ' + getStats(wpBaseArr, true);
-        window['wpStatTotalLow'].innerHTML = 'Всего в данном разделе представлено ' + getStats(wpBaseArr, true);
+        window.wpStatYear.style.display = 'none';
+        window.wpStatTotal.innerHTML = 'Всего в данном разделе представлено ' + getStats(wpBaseArr, true);
+        window.wpStatTotalLow.innerHTML = 'Всего в данном разделе представлено ' + getStats(wpBaseArr, true);
     } else {
-        window['wpStatTotal'].innerHTML = 'Всего в данном разделе представлено ' + getStats(wpBaseArr, false);
-        window['wpStatTotalLow'].innerHTML = 'Всего в данном разделе представлено ' + getStats(wpBaseArr, false);
-        window['wpStatYear'].innerHTML = 'По <a href="/programs/urgent/" target="_blank">краткосрочному плану</a> на ' + yearValue + ' год приведено ' + getStats(yearArr, true);
-        window['wpStatYear'].style.display = 'block';
+        window.wpStatTotal.innerHTML = 'Всего в данном разделе представлено ' + getStats(wpBaseArr, false);
+        window.wpStatTotalLow.innerHTML = 'Всего в данном разделе представлено ' + getStats(wpBaseArr, false);
+        window.wpStatYear.innerHTML = 'По <a href="/programs/urgent/" target="_blank">краткосрочному плану</a> на ' + yearValue + ' год приведено ' + getStats(yearArr, true);
+        window.wpStatYear.style.display = 'block';
     }
 
     document.querySelector('#wp_result').innerHTML = resultStr;
-    document.querySelector('#preloader_bar').style.display = 'none';
+    //document.querySelector('#preloader_bar').style.display = 'none';
 }
 
 /* главенствующая роль */
@@ -7935,8 +7935,8 @@ function setValues_year() {
     console.log('selectObj');
     createSelect(selectObj, yearAss, assotiativeYear);
     selectObj.addEventListener('change', function () {
-        document.querySelector('#preloader_bar').style.display = 'block';
-        yearValue = document.querySelector(this).value;
+        //document.querySelector('#preloader_bar').style.display = 'block';
+        yearValue = selectObj.value;
         keValue = '0';
         moValue = '0';
         stageValue = '0';
@@ -7947,23 +7947,23 @@ function setValues_year() {
     moValue = '0';
     stageValue = '0';
 
-    window['wtMoSelect'] = document.querySelector('#wt_mo');
-    window['wtKeSelect'] = document.querySelector('#wt_ke');
-    window['wtStageSelect'] = document.querySelector('#wt_stage');
+    window.wtMoSelect = document.querySelector('#wt_mo');
+    window.wtKeSelect = document.querySelector('#wt_ke');
+    window.wtStageSelect = document.querySelector('#wt_stage');
 
     wtMoSelect.addEventListener('change', function () {
-        document.querySelector('#preloader_bar').style.display = 'block';
-        moValue = document.querySelector(this).value;
+        //document.querySelector('#preloader_bar').style.display = 'block';
+        moValue = wtMoSelect.value;
         makeTable();
     });
     wtKeSelect.addEventListener('change', function () {
-        document.querySelector('#preloader_bar').style.display = 'block';
-        keValue = document.querySelector(this).value;
+        //document.querySelector('#preloader_bar').style.display = 'block';
+        keValue = wtKeSelect.value;
         makeTable();
     });
     wtStageSelect.addEventListener('change', function () {
-        document.querySelector('#preloader_bar').style.display = 'block';
-        stageValue = document.querySelector(this).value;
+        //document.querySelector('#preloader_bar').style.display = 'block';
+        stageValue = wtStageSelect.value;
         makeTable();
     });
     console.log(yearAss);
