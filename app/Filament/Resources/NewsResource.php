@@ -8,6 +8,8 @@ use App\Filament\Resources\NewsResource\RelationManagers;
 use App\Models\News;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -37,7 +39,11 @@ class NewsResource extends Resource
                                     ->required()
                                     ->maxLength(255)
                                     ->live(onBlur: true)
-                                    ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
+                                    ->afterStateUpdated(function (string $operation, $state, Set $set, Get $get) {
+                                        if ($get('is_sluggable') === true) {
+                                            return;
+                                        }
+
                                         if ($operation !== 'create') {
                                             return;
                                         }
@@ -45,12 +51,39 @@ class NewsResource extends Resource
                                         $set('slug', Str::slug($state));
                                     }),
 
+                                Forms\Components\Toggle::make('is_sluggable')
+                                    ->label('Ссылка на статью')
+                                    ->onColor('success')
+                                    ->offColor('danger')
+                                    ->inline(false)
+                                    ->dehydrated(false)
+                                    ->formatStateUsing(function (?News $record) {
+                                        if ($record !== null) {
+                                            return !$record->slug;
+                                        }
+
+                                        return false;
+                                    })
+                                    ->afterStateUpdated(function (?News $record, Set $set, Get $get) {
+                                        if ($record !== null && $get('slug') === null) {
+                                            $set('slug', Str::slug($get('name')));
+                                        }
+                                    })
+                                    ->live(),
+
                                 Forms\Components\TextInput::make('slug')
                                     ->label('Символьный код')
                                     ->disabled()
                                     ->dehydrated()
                                     ->required()
-                                    ->maxLength(255),
+                                    ->maxLength(255)
+                                    ->hidden(fn (Get $get): bool => $get('is_sluggable')),
+
+                                Forms\Components\TextInput::make('url')
+                                    ->label('Ссылка')
+                                    ->required()
+                                    ->maxLength(255)
+                                    ->hidden(fn (Get $get): bool => !$get('is_sluggable')),
 
                                 Forms\Components\Select::make('section_name')
                                     ->label('Название раздела')

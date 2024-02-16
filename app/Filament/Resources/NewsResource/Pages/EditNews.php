@@ -10,6 +10,17 @@ class EditNews extends EditRecord
 {
     protected static string $resource = NewsResource::class;
 
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        if (isset($data['slug'])) {
+            $data['url'] = null;
+        } else {
+            $data['slug'] = null;
+        }
+
+        return $data;
+    }
+
     protected function getHeaderActions(): array
     {
         return [

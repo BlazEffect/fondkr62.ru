@@ -11,6 +11,7 @@ class News extends Model
         'slug',
         'section_name',
         'content',
-        'active'
+        'active',
+        'url'
     ];
 }
