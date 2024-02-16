@@ -16,10 +16,17 @@
             <div class="main-files__list">
                 @foreach($news as $new)
                     <div class="main-files__item">
-                        <a class="main-files__link"
-                           href="/news/{{ $new->section_name }}/{{ $new->slug }}">
-                            {{ $new->name }}
-                        </a>
+                        @if ($new->slug !== null)
+                            <a class="main-files__link"
+                               href="/news/{{ $new->section_name }}/{{ $new->slug }}">
+                                {{ $new->name }}
+                            </a>
+                        @else
+                            <a class="main-files__link"
+                               href="{{ $new->url }}" target="_blank">
+                                {{ $new->name }}
+                            </a>
+                        @endif
                     </div>
                 @endforeach
             </div>
