@@ -74,15 +74,17 @@ get_kvit.addEventListener('click', function () {
 });
 
 load_kvit.addEventListener('click', function () {
-    let inner_izv_block = document.querySelectorAll('#inner_izv_block');
+    let inner_izv_block = document.querySelector('#inner_izv_block');
 
-    html2canvas(inner_izv_block[0], {
+    html2canvas(inner_izv_block, {
         onrendered: function (canvas) {
-            var data = canvas.toDataURL();
+            // Получаем URL изображения
+            var data = canvas.toDataURL('image/png');
+
             var docDefinition = {
                 content: [{
                     image: data,
-                    width: 670
+                    width: 520
                 }]
             };
             pdfMake.createPdf(docDefinition).download("cutomer-details.pdf");
