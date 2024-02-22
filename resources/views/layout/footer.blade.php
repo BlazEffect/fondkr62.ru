@@ -19,6 +19,18 @@
                     </div>
                 </div>
 
+                <div class="footer-contacts__email">
+                    <div class="footer-contacts__email-text--bolder">
+                        Адрес электронной почты:
+                    </div>
+
+                    <div class="footer-contacts__email-text--normal">
+                        <a href="mailto:mail@fondkr62.ru">
+                            mail@fondkr62.ru
+                        </a>
+                    </div>
+                </div>
+
                 <div class="footer-contacts__phone--PTO">
                     <div class="footer-contacts__phone-text--bolder">
                         Отдел ПТО:
