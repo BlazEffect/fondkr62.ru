@@ -22,6 +22,7 @@ export default defineConfig({
                 'resources/js/pages/home.js',
                 'resources/js/pages/korrupcii.js',
                 'resources/js/pages/owners-premises-operator.js',
+                'resources/js/pages/personal-account-email-receipts.js',
                 'resources/js/pages/personal-account-status.js',
                 'resources/js/pages/work-performed.js',
                 'node_modules/slim-select/dist/slimselect.css',

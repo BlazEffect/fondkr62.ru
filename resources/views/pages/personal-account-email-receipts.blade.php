@@ -100,13 +100,15 @@
                     </div>
 
                     <div class="main-receipts-form__control">
-                        <label class="main-receipts-form__label" for="userfile">
+                        <label class="main-receipts-form__label input-file">
                             Подтверждающий документ:
+                            <input class="main-receipts-form__input"
+                                   type="file"
+                                   name="userfile"
+                                   id="userfile">
+                            <span class="input-file-btn">Выберите файл</span>
+                            <span class="input-file-text"></span>
                         </label>
-                        <input class="main-receipts-form__input"
-                               type="file"
-                               name="userfile"
-                               id="userfile">
                     </div>
 
                     <div class="main-receipts-form__control">
@@ -151,4 +153,8 @@
             </form>
         </div>
     </main>
+@endsection
+
+@section('scripts')
+    @vite('resources/js/pages/personal-account-email-receipts.js')
 @endsection
