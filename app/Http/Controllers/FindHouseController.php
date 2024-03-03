@@ -12,6 +12,7 @@ use App\Models\Lot;
 use App\Models\Offer;
 use App\Models\RepairReturn;
 use App\Models\Street;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class FindHouseController extends Controller
@@ -20,7 +21,7 @@ class FindHouseController extends Controller
     /**
      * Вывод страницы "Узнайте о своем доме"
      */
-    public function index()
+    public function index(Request $request)
     {
         $this->vars['arrMunicipalities'] = HouseHelper::getMunicipalities();
 
@@ -28,6 +29,24 @@ class FindHouseController extends Controller
         $this->vars['countCommonAreaMKD'] = 0;
         $this->vars['countHouseOnSpecShetOwnerRegionOperator'] = 0;
         $this->countHouseTypeFormingFond();
+
+        $codeHouse = $request->get('house');
+
+        if ($codeHouse !== null) {
+            $codeHouse -= 909132453675;
+
+            $house = House::query()
+                ->select('CodeHouse', 'Region')
+                ->where('CodeHouse', $codeHouse)
+                ->first();
+            $houseStreet = $house->Region;
+
+            if (str_contains($houseStreet, 'район')) {
+                $this->vars['selectedRegion'] = str_replace(' район', '', $houseStreet);
+            } else {
+                $this->vars['selectedRegion'] = str_replace('г. ', '', $houseStreet);
+            }
+        }
 
         return view('pages.find-house', $this->vars);
     }

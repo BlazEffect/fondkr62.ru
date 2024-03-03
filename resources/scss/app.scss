@@ -163,6 +163,7 @@
     position: fixed;
     background-color: #00000026;
     top: 0;
+    z-index: 1;
 }
 
 @media (max-width: $laptop) {

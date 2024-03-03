@@ -3,6 +3,7 @@
     &__page-wrapper {
         display: flex;
         flex-direction: column;
+        position: relative;
     }
 
     // .main-selectors
@@ -69,4 +70,12 @@ table a {
 
 #dropdown-toggle:checked + .main__dropdown-content {
     margin: 0 20px 15px;
+}
+
+#wp_top_preloader {
+    position: absolute;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
 }

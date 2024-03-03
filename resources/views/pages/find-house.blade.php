@@ -18,6 +18,10 @@
         <h2 class="main__page-heading">Узнайте о своем доме</h2>
 
         <div class="main__page-wrapper">
+            <div id="wp_top_preloader">
+                <img src="/assets/images/work-performed/preloader.gif">
+            </div>
+
             <div class="main-selectors">
                 @csrf
 
@@ -26,17 +30,23 @@
                         <option data-placeholder="true"></option>
                         <optgroup label="Городские округа Рязанской области">
                             @foreach($arrMunicipalities as $codeMunicipalitie => $arrMunicipalitie)
-                                @if ($arrMunicipalitie['Type'] === "R")
-                                    @break
+                                @if ($arrMunicipalitie['Type'] === "G")
+                                    @if ($arrMunicipalitie['Name'] === $selectedRegion)
+                                        <option value="{{ $codeMunicipalitie }}" selected>г. {{ $arrMunicipalitie['Name'] }}</option>
+                                    @else
+                                        <option value="{{ $codeMunicipalitie }}">г. {{ $arrMunicipalitie['Name'] }}</option>
+                                    @endif
                                 @endif
-
-                                <option value="{{ $codeMunicipalitie }}">г. {{ $arrMunicipalitie['Name'] }}</option>
                             @endforeach
                         </optgroup>
                         <optgroup label="Районы Рязанской области">
                             @foreach($arrMunicipalities as $codeMunicipalitie => $arrMunicipalitie)
                                 @if ($arrMunicipalitie['Type'] === "R")
-                                    <option value="{{ $codeMunicipalitie }}">{{ $arrMunicipalitie['Name'] }}</option>
+                                    @if ($arrMunicipalitie['Name'] === $selectedRegion)
+                                        <option value="{{ $codeMunicipalitie }}" selected>{{ $arrMunicipalitie['Name'] }}</option>
+                                    @else
+                                        <option value="{{ $codeMunicipalitie }}">{{ $arrMunicipalitie['Name'] }}</option>
+                                    @endif
                                 @endif
                             @endforeach
                         </optgroup>

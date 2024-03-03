@@ -77,7 +77,7 @@ class WorkPerformedController extends Controller
             {
                 $table .= "<tr>";
                 $table .= "<td style=\"font-size: 0.9em\">";
-                $table .= "<a id=\"".($i["CodeHouse"] + $sh)."\" href=\"/base/house/".($i["CodeHouse"] + $sh)."\">";
+                $table .= "<a id=\"".($i["CodeHouse"] + $sh)."\" href=\"/base/house/?house=".($i["CodeHouse"] + $sh)."\">";
                 $table .= $i["Region"].", ".$i["OfficialAddress"];
                 $table .= "</a>";
                 $table .="</td>";

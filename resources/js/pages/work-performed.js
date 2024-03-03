@@ -7869,7 +7869,7 @@ function makeTable() {
 
         for (var w = 0; w < outputArr.length; w++) {
             resultStr += '<tr>';
-            resultStr += '<td><a id="' + outputArr[w][0] + '" href="/base/house/' + outputArr[w][0] + '/">';
+            resultStr += '<td><a id="' + outputArr[w][0] + '" href="/base/house/?house=' + outputArr[w][0] + '">';
             resultStr += outputArr[w][2] + ', ' + outputArr[w][3] + '</a></td>';
 
             keStr = outputArr[w][4];
