@@ -26,6 +26,7 @@ function DOMLoaded() {
             if (!its_menu && menu_is_active) {
                 menu.classList.remove('header-bottom__menu--open');
                 overlay.style.display = 'none';
+                document.querySelector('body').style.overflowY = 'scroll';
             }
         });
 
@@ -34,6 +35,7 @@ function DOMLoaded() {
             event.stopPropagation();
             menu.classList.add('header-bottom__menu--open');
             overlay.style.display = 'block';
+            document.querySelector('body').style.overflowY = 'hidden';
         })
 
         const headerBottomMenuItem = [].slice.call(document.querySelectorAll('.header-bottom__menu-item'))
