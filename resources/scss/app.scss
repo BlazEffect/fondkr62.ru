@@ -184,6 +184,23 @@
     }
 }
 
+.warning-banner {
+    &__wrapper {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    &__tech_work {
+        background: #ff5757;
+        padding: 30px 0;
+    }
+}
+
+
+
 @import "blocks/header";
 
 @import "blocks/breadcrumbs";

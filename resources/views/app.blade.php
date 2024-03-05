@@ -32,6 +32,12 @@
 
         @include('layout.footer')
 
+        <div class="warning-banner__wrapper">
+            <div class="warning-banner__tech_work">
+                На сайте проводятся технические работы! Возможна временная недоступность или сбои. Мы работаем над улучшением функционала.
+            </div>
+        </div>
+
         @yield('scripts')
     </body>
 </html>
