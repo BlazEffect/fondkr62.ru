@@ -31,7 +31,7 @@
                         <optgroup label="Городские округа Рязанской области">
                             @foreach($arrMunicipalities as $codeMunicipalitie => $arrMunicipalitie)
                                 @if ($arrMunicipalitie['Type'] === "G")
-                                    @if ($arrMunicipalitie['Name'] === $selectedRegion)
+                                    @if (isset($selectedRegion) && $arrMunicipalitie['Name'] === $selectedRegion)
                                         <option value="{{ $codeMunicipalitie }}" selected>г. {{ $arrMunicipalitie['Name'] }}</option>
                                     @else
                                         <option value="{{ $codeMunicipalitie }}">г. {{ $arrMunicipalitie['Name'] }}</option>
@@ -42,7 +42,7 @@
                         <optgroup label="Районы Рязанской области">
                             @foreach($arrMunicipalities as $codeMunicipalitie => $arrMunicipalitie)
                                 @if ($arrMunicipalitie['Type'] === "R")
-                                    @if ($arrMunicipalitie['Name'] === $selectedRegion)
+                                    @if (isset($selectedRegion) && $arrMunicipalitie['Name'] === $selectedRegion)
                                         <option value="{{ $codeMunicipalitie }}" selected>{{ $arrMunicipalitie['Name'] }}</option>
                                     @else
                                         <option value="{{ $codeMunicipalitie }}">{{ $arrMunicipalitie['Name'] }}</option>

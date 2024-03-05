@@ -25,6 +25,7 @@ new SlimSelect({
 });
 
 if (house !== null) {
+    document.querySelector('#wp_top_preloader').style.display = 'block';
     document.querySelector('.overlay').style.display = 'block';
     document.querySelector('body').style.overflowY = 'hidden';
 
