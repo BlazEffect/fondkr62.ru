@@ -119,8 +119,22 @@ function formingOptions(id, streets, arrOptions = [], selectedHouse = null) {
         for (const key in streets[id]) {
             const item = streets[id][key];
 
-            if (item.CodeHouse === undefined) {
-                // TODO: исправить проблему с 2-ой и более вложенностью.
+            if (item.Type !== undefined && (item.Type.toLowerCase() === 'село' || item.Type.toLowerCase() === 'деревня' || item.Type.toLowerCase() === 'городок' || item.Type.toLowerCase() === 'город' || item.Type.toLowerCase().indexOf('поселок') !== -1)) {
+                if (streets[item.Id][0].CodeHouse === undefined) {
+                    arrOptions.push({
+                        text: item.DopNumber + ' ' + item.Name + ' ' + item.Type,
+                        disabled: true
+                    });
+
+                    formingOptions(item.Id, streets, [], selectedHouse).forEach(item => arrOptions.push(item));
+                } else {
+                    arrOptions.push({
+                        label: item.DopNumber + ' ' + item.Name + ' ' + item.Type,
+                        closable: 'close',
+                        options: formingOptions(item.Id, streets, [], selectedHouse)
+                    });
+                }
+            } else if (item.CodeHouse === undefined) {
                 arrOptions.push({
                     label: item.DopNumber + ' ' + item.Name + ' ' + item.Type,
                     closable: 'close',
@@ -132,18 +146,11 @@ function formingOptions(id, streets, arrOptions = [], selectedHouse = null) {
                 let litera = item.Litera ?? ' ';
                 let numKorp = item.NumKorp ?? ' ';
 
-                if (parseInt(selectedHouse) === parseInt(item.CodeHouse) + 909132453675) {
-                    arrOptions.push({
-                        text: 'д. ' + item.NumberHouse + litera + korp + numKorp,
-                        value: parseInt(item.CodeHouse) + 909132453675,
-                        selected: true
-                    });
-                } else {
-                    arrOptions.push({
-                        text: 'д. ' + item.NumberHouse + litera + korp + numKorp,
-                        value: parseInt(item.CodeHouse) + 909132453675,
-                    });
-                }
+                arrOptions.push({
+                    text: 'д. ' + item.NumberHouse + litera + korp + numKorp,
+                    value: parseInt(item.CodeHouse) + 909132453675,
+                    selected: parseInt(selectedHouse) === parseInt(item.CodeHouse) + 909132453675
+                });
             }
         }
     }

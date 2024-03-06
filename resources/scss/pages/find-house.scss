@@ -80,3 +80,7 @@ table a {
     left: 50%;
     display: none;
 }
+
+.ss-content .ss-list .ss-option.ss-disabled ~ .ss-optgroup {
+    padding: var(--ss-spacing-s) var(--ss-spacing-s) var(--ss-spacing-s) calc(var(--ss-spacing-l)*3);
+}
