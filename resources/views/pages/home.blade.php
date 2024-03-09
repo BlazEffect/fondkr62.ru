@@ -53,9 +53,7 @@
                         class="main-cards__card-icon">
 
                     <div class="main-cards__card-text">
-                        Предложение<br>
-                        о проведении<br>
-                        капитального ремонта
+                        Узнайте о своем доме
                     </div>
                 </a>
             </div>
